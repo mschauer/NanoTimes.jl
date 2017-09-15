@@ -6,7 +6,6 @@ export NanoTime, NanoSpan,
     weeks, days, hours, minutes, seconds,
     milliseconds, microseconds, nanoseconds
 
-
 using Base.Dates
 import Base.Dates: datetime2rata, rata2datetime,
     datetime2unix, unix2datetime,
