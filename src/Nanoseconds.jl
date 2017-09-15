@@ -15,5 +15,6 @@ include "support/rata_conversion.jl"
 include "type/Abstract.jl"
 include "type/NanoTime.jl"
 include "type/NanoSpan.jl"
+include "type/convert.jl"
 
 end # module
