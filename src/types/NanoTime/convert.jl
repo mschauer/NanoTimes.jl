@@ -11,7 +11,7 @@ function Date(x::NanoTime)
 end
 
 function Time(x::NanoTime)
-    return Time(value(x))
+    return Time(Base.Date.Nanosecond(value(x)))
 end
 
 function NanoTime(dtm::DateTime)
