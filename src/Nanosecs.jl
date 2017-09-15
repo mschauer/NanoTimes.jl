@@ -7,7 +7,8 @@ export NanoTime, NanoSpan,
     milliseconds, microseconds, nanoseconds
 
 using Base.Dates
-import Base.Dates: datetime2rata, rata2datetime,
+import Base.Dates: Date, Time, DateTime,
+    datetime2rata, rata2datetime,
     datetime2unix, unix2datetime,
     date2epochdays, epochdays2date,
     Period, CompoundPeriod,
