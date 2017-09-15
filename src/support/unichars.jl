@@ -1,7 +1,0 @@
-const POSITIVE = '+'
-const NEGATIVE = '−'
-const HMS_SEP  = ':'
-const YMD_SEP  = '-'
-const DTM_SEP  = 'T'
-const UT_SFX   = 'Ƶ'
-const UTC_SFX  = 'Z'
