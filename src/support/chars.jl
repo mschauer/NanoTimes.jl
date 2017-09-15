@@ -27,7 +27,7 @@ function ninedigits(x::Integer)
    string( threedigits(hi), threedigits(mid), threedigits(lo) )
 end
 
-function signedhm(x::Integer)
+function signed_hoursmins(x::Integer)
    isneg, absx = signbit(x), abs(x)
    h, m = divrem(absx, 60)
    string(posneg(isneg), twodigits(h), HMS_SEP, twodigits(m))
