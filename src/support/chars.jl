@@ -17,18 +17,18 @@ end
 end
 
 function sixdigits(x::Integer)
-    hi, lo = divmod(x, 1000)
+    hi, lo = divrem(x, 1000)
     string( threedigits(hi), threedigits(lo) )
 end
 
 function ninedigits(x::Integer)
-   md, lo = divmod(x, 1000)
-   hi, md = dimmod(md, 1000)
+   md, lo = divrem(x, 1000)
+   hi, md = divrem(md, 1000)
    string( threedigits(hi), threedigits(mid), threedigits(lo) )
 end
 
 function signedhm(x::Integer)
    isneg, absx = signbit(x), abs(x)
-   h, m = divmod(absx, 60)
+   h, m = divrem(absx, 60)
    string(posneg(isneg), twodigits(h), HMS_SEP, twodigits(m))
 end
