@@ -5,7 +5,8 @@ export NanoTime, NanoSpan
 using Base.Dates
 import Base.Dates: datetime2rata, rata2datetime,
     datetime2unix, unix2datetime,
-    date2epochdays, epochdays2date
+    date2epochdays, epochdays2date,
+    Period, CompoundPeriod
 
 const IntTime = Int64
 
