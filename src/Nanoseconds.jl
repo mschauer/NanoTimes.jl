@@ -6,7 +6,11 @@ using Base.Dates
 import Base.Dates: datetime2rata, rata2datetime,
     datetime2unix, unix2datetime,
     date2epochdays, epochdays2date,
-    Period, CompoundPeriod
+    Period, CompoundPeriod,
+    Year, Month, Week, Day, Hour, Minute, Second,
+    Millisecond, Microsecond, Nanosecond,
+    year, month, week, day, hour, minute, second,
+    millisecond, microsecond, nanosecond
 
 const IntTime = Int64
 
