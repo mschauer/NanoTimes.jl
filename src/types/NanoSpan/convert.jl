@@ -30,7 +30,7 @@ function NanoSpan(; days::Int64=0,
     dnanosec += minutes * NANOSECONDS_PER_MINUTE
     dnanosec += hours * NANOSECONDS_PER_HOUR
     dnanosec += days * NANOSECONDS_PER_DAY
-    return return NanoSpan(nanosec)
+    return NanoSpan(dnanosec)
 end
 
 function NanoSpan(x::DateTime)
