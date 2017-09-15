@@ -5,7 +5,7 @@ export NanoTime, NanoSpan,
     Year, Month, Week, Day, Hour, Minute, Second,
     Millisecond, Microsecond, Nanosecond,
     year, month, week, day, hours, minute, second,
-    millisecond, microsecond, nanosecond
+    millisecond, microsecond, nanosecond,
     Weeks, Days, Hours, Minutes, Seconds,
     Milliseconds, Microseconds, Nanoseconds,
     weeks, days, hours, minutes, seconds,
