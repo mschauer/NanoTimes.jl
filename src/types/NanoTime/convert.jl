@@ -6,7 +6,7 @@ function NanoTime(dt::Date)
 end
 
 function Date(x::NanoTime)
-    dat = RATAFIRST + fld(x.nanosec, NANOSECONDS_PER_DAY)
+    dat = RATAFIRST + fld(nanoseconds(x), NANOSECONDS_PER_DAY)
     return rata2date(dat)
 end
 
@@ -17,7 +17,7 @@ function NanoTime(dtm::DateTime)
 end
 
 function DateTime(x::NanoTime)
-    dat, tim = fldmod(x.nanosec, NANOSECONDS_PER_DAY)
+    dat, tim = fldmod(nanoseconds(x), NANOSECONDS_PER_DAY)
     dat = rata2date(dat + RATAFIRST)
     tim = Time(Nanosecond(tim))
     return dat+tim
