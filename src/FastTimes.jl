@@ -12,6 +12,7 @@ const IntTime = Int64
 include "support/granular_consts.jl"
 include "support/rata_conversion.jl"
 
+include "type/Abstract.jl"
 include "type/FastTime.jl"
 include "type/FastSpan.jl"
 
