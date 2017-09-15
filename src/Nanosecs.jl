@@ -1,4 +1,4 @@
-module Nanoseconds
+module Nanosecs
 
 export NanoTime, NanoSpan
 
