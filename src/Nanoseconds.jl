@@ -1,6 +1,6 @@
-module FastTimes
+module Nanoseconds
 
-export FastTime, FastSpan
+export NanoTime, NanoSpan
 
 using Base.Dates
 import Base.Dates: datetime2rata, rata2datetime,
@@ -13,7 +13,7 @@ include "support/granular_consts.jl"
 include "support/rata_conversion.jl"
 
 include "type/Abstract.jl"
-include "type/FastTime.jl"
-include "type/FastSpan.jl"
+include "type/NanoTime.jl"
+include "type/NanoSpan.jl"
 
 end # module
