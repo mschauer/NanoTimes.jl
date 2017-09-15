@@ -1,2 +1,3 @@
-# FastTimes.jl
-FastTime is a nanosecond resolvable date+timeofday type
+# Nanoseconds.jl
+- NanoTime is a nanosecond resolvable date+timeofday type.
+- NanoSpan is a nanosecond resolvable deltaNanoTime type.
