@@ -7,14 +7,14 @@ function NanoSpan(x::CompoundPeriod)
     return NanoSpan(nanosecs.value)
 end
 
-NanoSpan(x::Week) = NanoSpan(x.value * NANOSECONDS_PER_WEEK)
-NanoSpan(x::Day)  = NanoSpan(x.value * NANOSECONDS_PER_DAY)
-NanoSpan(x::Hour) = NanoSpan(x.value * NANOSECONDS_PER_HOUR)
-NanoSpan(x::Minute) = NanoSpan(x.value * NANOSECONDS_PER_MINUTE)
-NanoSpan(x::Second) = NanoSpan(x.value * NANOSECONDS_PER_SECOND)
-NanoSpan(x::Millisecond) = NanoSpan(x.value * NANOSECONDS_PER_MILLISEC)
-NanoSpan(x::Microsecond) = NanoSpan(x.value * NANOSECONDS_PER_MICROSEC)
-NanoSpan(x::Nanosecond)  = NanoSpan(x.value)
+NanoSpan(x::Week) = NanoSpan(nanoseconds(x) * NANOSECONDS_PER_WEEK)
+NanoSpan(x::Day)  = NanoSpan(nanoseconds(x) * NANOSECONDS_PER_DAY)
+NanoSpan(x::Hour) = NanoSpan(nanoseconds(x) * NANOSECONDS_PER_HOUR)
+NanoSpan(x::Minute) = NanoSpan(nanoseconds(x) * NANOSECONDS_PER_MINUTE)
+NanoSpan(x::Second) = NanoSpan(nanoseconds(x) * NANOSECONDS_PER_SECOND)
+NanoSpan(x::Millisecond) = NanoSpan(nanoseconds(x) * NANOSECONDS_PER_MILLISEC)
+NanoSpan(x::Microsecond) = NanoSpan(nanoseconds(x) * NANOSECONDS_PER_MICROSEC)
+NanoSpan(x::Nanosecond)  = NanoSpan(nanoseconds(x))
 
 function NanoSpan(; days::Int64=0,
                     hours::Int64=0,
