@@ -1,5 +1,6 @@
 const QUARTERS_PER_YEAR  = IntTime(4)
 const MONTHS_PER_QUARTER = IntTime(3)
+const MONTHS_PER_YEAR    = QUARTERS_PER_YEAR * MONTHS_PER_QUARTER
 
 const DAYS_PER_WEEK      = IntTime(7)
 const HOURS_PER_DAY      = IntTime(24)
