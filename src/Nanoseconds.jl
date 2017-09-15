@@ -12,6 +12,7 @@ import Base.Dates: datetime2rata, rata2datetime,
     year, month, week, day, hour, minute, second,
     millisecond, microsecond, nanosecond
 
+const IntTimes = Union{Int64, Int128}
 const IntTime = Int64
 
 include("support/granular_consts.jl")
