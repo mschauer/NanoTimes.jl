@@ -1,6 +1,11 @@
 module Nanosecs
 
-export NanoTime, NanoSpan
+export NanoTime, NanoSpan,
+    Weeks, Days, Hours, Minutes, Seconds,
+    Milliseconds, Microseconds, Nanoseconds,
+    weeks, days, hours, minutes, seconds,
+    milliseconds, microseconds, nanoseconds
+
 
 using Base.Dates
 import Base.Dates: datetime2rata, rata2datetime,
