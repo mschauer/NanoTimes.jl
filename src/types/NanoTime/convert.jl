@@ -10,6 +10,10 @@ function Date(x::NanoTime)
     return rata2date(dat)
 end
 
+function Time(x::NanoTime)
+    return Time(value(x))
+end
+
 function NanoTime(dtm::DateTime)
     dat = Date(dtm)
     tim = Time(dtm)
