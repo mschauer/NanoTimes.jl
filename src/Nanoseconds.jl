@@ -13,7 +13,7 @@ import Base.Dates: datetime2rata, rata2datetime,
     millisecond, microsecond, nanosecond
 
 const IntTimes = Union{Int64, Int128}
-const IntTime = Int64
+const IntTime  = Int64                   # one of IntTimes
 
 include("support/granular_consts.jl")
 include("support/rata_conversion.jl")
