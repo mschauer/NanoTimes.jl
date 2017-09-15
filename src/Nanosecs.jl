@@ -19,6 +19,7 @@ import Base.Dates: datetime2rata, rata2datetime,
 const IntTimes = Union{Int64, Int128}
 const IntTime  = Int64                   # one of IntTimes
 
+include("support/chars.jl")
 include("support/granular_consts.jl")
 include("support/rata_conversion.jl")
 
