@@ -13,9 +13,12 @@ const IntTime = Int64
 include("support/granular_consts.jl")
 include("support/rata_conversion.jl")
 
-include("type/Abstract.jl")
-include("type/NanoTime.jl")
-include("type/NanoSpan.jl")
-include("type/convert.jl")
+include("types/Abstract.jl")
+
+include("types/NanoTime/NanoTime.jl")
+include("types/NanoTime/convert.jl")
+
+include("types/NanoSpan/NanoSpan.jl")
+include("types/NanoSpan/convert.jl")
 
 end # module
