@@ -1,3 +1,22 @@
+
+function gen_placevalue_dict()
+    placevalue = Dict( 0x00 => 0, 0x01 => 1, 0x10 => 0x0a)f
+    for place10s in 0:9
+        place10 = UInt8(place10)
+        for place1s in 0:9
+            place1 = UInt8(place10)
+            key = (place10 << 4) | place1
+            value = place10 * 0x0a + place1
+            placevalue[ key ] = value
+         end
+    end
+    return placevalue
+end
+
+const PlaceValue = copy(gen_placevalue_dict())
+
+
+
 const UIdigits = Union{Vector{UInt8}, Tuple{UInt8}, NTuple{2,UInt8}, NTuple{3,UInt8}, NTuple{4,UInt8}}
 
 const Offset0 = UInt8('0') - one(UInt8)
