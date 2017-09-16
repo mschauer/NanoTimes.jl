@@ -34,6 +34,7 @@ include("types/Span/Span.jl")
 include("support/chars.jl")
 include("support/granular_consts.jl")
 include("support/rata_conversion.jl")
+include("support/fast_to_smallint.jl")
 
 include("types/Clock/convert.jl")
 include("types/Clock/parts.jl")
