@@ -43,10 +43,10 @@ function Base.string(x::NanoSpan{T}) where T
     end
     
     subgranular = length(days) > 0
-    if not subgranular
-        result = string(POSITIVE, "0", SCSS_SEP)
+    if subgranular
+        result = string( (isneg ? NEGATIVE : POSITIVE), days )
     else
-        result = string( (isneg ? NEGATIVE : POSITIVE), days ) 
+        result = string(POSITIVE, "0", SCSS_SEP) 
     end
     
     return result
