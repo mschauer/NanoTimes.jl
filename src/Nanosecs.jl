@@ -27,20 +27,20 @@ import Base.Dates: Date, Time, DateTime,
 const IntTimes = Union{Int64, Int128}
 const IntTime  = Int64                   # one of IntTimes
 
+include("types/Abstract.jl")
+include("types/NanoTime/NanoTime.jl")
+include("types/NanoSpan/NanoSpan.jl")
+
 include("support/chars.jl")
 include("support/granular_consts.jl")
 include("support/rata_conversion.jl")
 
-include("types/Abstract.jl")
-
-include("types/NanoTime/NanoTime.jl")
 include("types/NanoTime/convert.jl")
 include("types/NanoTime/parts.jl")
 include("types/NanoTime/string.jl")
 include("types/NanoTime/io.jl")
 include("types/NanoTime/arith.jl")
 
-include("types/NanoSpan/NanoSpan.jl")
 include("types/NanoSpan/convert.jl")
 include("types/NanoSpan/parts.jl")
 include("types/NanoSpan/string.jl")
