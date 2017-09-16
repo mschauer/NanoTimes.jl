@@ -13,4 +13,4 @@
    &diamond; enhances the ability to work with mixed time masures   
    &diamond; covers all levels of FINRA, MiFID II timestamp precision
    
->  The 2018 US and EU financial regulations constrain timestamp behavior.  This package supports the precision needed to timestamp high frequency trades.  Regulatory compliance also requires the time signal to be stau within 100 microseconds of UTC (an internationally coordinated time using leap seconds. A leap second posts the 61st second of a 60th minute, e.g. _23:59:60_).
+>  The 2018 US and EU financial regulations constrain timestamp behavior.  This package sorts timestamping high frequency trades.  Regulatory compliance also requires hardware that provides time information which remains within 100 microseconds of UTC (an internationally coordinated time using leap seconds. A leap second posts the 61st second of a 60th minute, e.g. _23:59:60_).
