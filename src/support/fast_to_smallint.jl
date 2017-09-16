@@ -12,19 +12,15 @@ function gen_placevalue_dict()
     return placevalue
 end
 
-
 const Place1s    = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 const PlaceValue = gen_placevalue_dict()
 
 @inline placevalue_key(place10::UInt8, place1::UInt8) = place10 << 4 | place1
 
-
 const UIdigits = Union{Vector{UInt8}, Tuple{UInt8}, NTuple{2,UInt8}, NTuple{3,UInt8}, NTuple{4,UInt8}}
 
-const Offset0 = UInt8('0') - one(UInt8)
-
-#@inline char_to_uint(char::Char) = UInt8(char) - Offset0
-@inline char_to_uint(char::Char) = UInt8(char)
+const Offset0 = UInt8('0')
+@inline char_to_uint(char::Char) = UInt8(char) - Offset0
 
 @inline two_chars_to_uints(place10::Char, place1::Char) =
     char_to_uint(place10), char_to_uint(place1)
