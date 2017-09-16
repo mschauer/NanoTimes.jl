@@ -30,25 +30,25 @@ const Offset0 = UInt8('0')
     placevalue_key(two_chars_to_uints(place10, place1)...)
 
 function str1_to_int(str::String) 
-    return @inbounds Place1s[ char_to_uint(str[1]) ]
+    @inbounds 
+    return Place1s[ char_to_uint(str[1]) ]
 end
 
 function str2_to_int(str::String)
-    return @inbounds PlaceValue[ two_chars_to_key(str[1], str[2]) ]
+    @inbounds
+    return PlaceValue[ two_chars_to_key(str[1], str[2]) ]
 end
 
 function str3_to_int(str::String)
-     return @inbounds begin 
-             100 * PlaceValue[ two_chars_to_key('0', str[1]) ] +
-                   PlaceValue[ two_chars_to_key(str[2], str[3]) ]
-             end
+    @inbounds 
+    return 100 * PlaceValue[ two_chars_to_key('0', str[1]) ] +
+                 PlaceValue[ two_chars_to_key(str[2], str[3]) ]
 end
 
 function str4_to_int(str::String)
-    return @inbounds begin
-              100 * PlaceValue[ two_chars_to_key(str[1], str[2]) ] +
-                    PlaceValue[ two_chars_to_key(str[3], str[4]) ]
-              end
+    @inbounds
+    return 100 * PlaceValue[ two_chars_to_key(str[1], str[2]) ] +
+                 PlaceValue[ two_chars_to_key(str[3], str[4]) ]
 end
 
 function str_to_int(str::String)
