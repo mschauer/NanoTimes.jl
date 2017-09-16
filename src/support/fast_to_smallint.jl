@@ -33,11 +33,15 @@ str1_to_int(str::String) = @inbounds Place1s[ char_to_value(str[1]) ]
 
 str2_to_int(str::String) =  @inbounds PlaceValue[ two_chars_to_key(str[1], str[2]) ]
 
-str3_to_int(str::String) =  @inbounds 100 * PlaceValue[ two_chars_to_key('0', str[1]) ] +
-                                            PlaceValue[ two_chars_to_key(str[2], str[3]) ]
+str3_to_int(str::String) =  @inbounds begin 
+                                  100 * PlaceValue[ two_chars_to_key('0', str[1]) ] +
+                                  PlaceValue[ two_chars_to_key(str[2], str[3]) ]
+                             end
 
-str4_to_int(str::String) =  @inbounds  100 * PlaceValue[ two_chars_to_key(str[1], str[2]) ] +
-                                            PlaceValue[ two_chars_to_key(str[3], str[4]) ]
+str4_to_int(str::String) =  @inbounds begin
+                                  100 * PlaceValue[ two_chars_to_key(str[1], str[2]) ] +
+                                        PlaceValue[ two_chars_to_key(str[3], str[4]) ]
+                            end
 
 function str_to_int(str::String)
     n = min(4,length(str))
