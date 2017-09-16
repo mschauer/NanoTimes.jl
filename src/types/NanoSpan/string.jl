@@ -18,7 +18,7 @@ function Base.string(x::NanoSpan{T}) where T
     if scs === zero(T)
         secs = subgranular ? string("00.", subsecs) : ""
     else
-        secs = subgranular ? string(twodigits(secs), DEC_PT, subsecs) : twodigits(secs)
+        secs = subgranular ? string(twodigits(scs), DEC_PT, subsecs) : twodigits(scs)
     end
     
     subgranular = length(secs) > 0
