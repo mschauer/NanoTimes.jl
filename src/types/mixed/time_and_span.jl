@@ -4,7 +4,7 @@ promote_type(::Type{NanoTime{Int64}}, ::Type{NanoTime{Int128}}) = NanoTime{Int12
 promote_rule(::Type{NanoTime{Int64}}, ::Type{NanoTime{Int128}}) = NanoTime{Int128}
 
 
-NanoTime{Int128}(x::NanoTime{Int64}) = NanoTime{Int128}(value(x))
+NanoTime(x::NanoTime{I1}) where I1<:Int64 where I2<:Int128 = NanoTime{I2}(value(x))
 #convert(::Type{NanoTime{Int128}}, x::NanoTime{Int64}) = NanoTime{Int128}(value(x))
 function convert(::Type{NanoTime{Int64}}, x::NanoTime{Int128})
     if value(x) < typemin(Int64) || value(x) > typemax(Int64)
