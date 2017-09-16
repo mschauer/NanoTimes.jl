@@ -1,5 +1,5 @@
-struct NanoTime{T} <: AbstractNanoTime
+struct Clock{T} <: AbstractClock
     value::T
 end
 
-@inline value(x::NanoTime{T}) where T<:IntTimes = x.value
+@inline value(x::Clock{T}) where T<:IntTimes = x.value

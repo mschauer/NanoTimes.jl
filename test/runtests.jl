@@ -12,12 +12,12 @@ ddate = date2 - date1
 ddtm  = datm2 - datm1
 dtime = time2 - time1
 
-ndate1 = NanoTime(date1)
-ndate2 = NanoTime(date2)
-ndatm1 = NanoTime(datm1)
-ndatm2 = NanoTime(datm2)
-nspan1 = NanoSpan(time1)
-nspan2 = NanoSpan(time2)
+ndate1 = Clock(date1)
+ndate2 = Clock(date2)
+ndatm1 = Clock(datm1)
+ndatm2 = Clock(datm2)
+nspan1 = Span(time1)
+nspan2 = Span(time2)
 #= 
 nspan  = nspan2 - nspan1
 

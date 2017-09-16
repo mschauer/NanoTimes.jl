@@ -1,22 +1,22 @@
-function NanoSpan(x::Time)
-    return NanoSpan(x.instant.value)
+function Span(x::Time)
+    return Span(x.instant.value)
 end
 
-function NanoSpan(x::CompoundPeriod)
+function Span(x::CompoundPeriod)
     nanosecs = sum(map(a->Nanosecond(a), x.periods))
-    return NanoSpan(nanosecs.value)
+    return Span(nanosecs.value)
 end
 
-NanoSpan(x::Week) = NanoSpan(x.value * NANOSECONDS_PER_WEEK)
-NanoSpan(x::Day)  = NanoSpan(x.value * NANOSECONDS_PER_DAY)
-NanoSpan(x::Hour) = NanoSpan(x.value * NANOSECONDS_PER_HOUR)
-NanoSpan(x::Minute) = NanoSpan(x.value * NANOSECONDS_PER_MINUTE)
-NanoSpan(x::Second) = NanoSpan(x.value * NANOSECONDS_PER_SECOND)
-NanoSpan(x::Millisecond) = NanoSpan(x.value * NANOSECONDS_PER_MILLISEC)
-NanoSpan(x::Microsecond) = NanoSpan(x.value * NANOSECONDS_PER_MICROSEC)
-NanoSpan(x::Nanosecond)  = NanoSpan(x.value)
+Span(x::Week) = Span(x.value * NANOSECONDS_PER_WEEK)
+Span(x::Day)  = Span(x.value * NANOSECONDS_PER_DAY)
+Span(x::Hour) = Span(x.value * NANOSECONDS_PER_HOUR)
+Span(x::Minute) = Span(x.value * NANOSECONDS_PER_MINUTE)
+Span(x::Second) = Span(x.value * NANOSECONDS_PER_SECOND)
+Span(x::Millisecond) = Span(x.value * NANOSECONDS_PER_MILLISEC)
+Span(x::Microsecond) = Span(x.value * NANOSECONDS_PER_MICROSEC)
+Span(x::Nanosecond)  = Span(x.value)
 
-function NanoSpan(; days::Int64=0,
+function Span(; days::Int64=0,
                     hours::Int64=0,
                     minutes::Int64=0,
                     seconds::Int64=0,
@@ -30,9 +30,9 @@ function NanoSpan(; days::Int64=0,
     dnanosec += minutes * NANOSECONDS_PER_MINUTE
     dnanosec += hours * NANOSECONDS_PER_HOUR
     dnanosec += days * NANOSECONDS_PER_DAY
-    return NanoSpan(dnanosec)
+    return Span(dnanosec)
 end
 
-function NanoSpan(x::DateTime)
-    error("use NanoTime(x::DateTime), not NanoSpan(x::DateTime)")
+function Span(x::DateTime)
+    error("use Clock(x::DateTime), not Span(x::DateTime)")
 end

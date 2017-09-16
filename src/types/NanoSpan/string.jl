@@ -1,4 +1,4 @@
-function Base.string(x::NanoSpan{T}) where T
+function Base.string(x::Span{T}) where T
     nanosecs = nanosecond(x)
     isneg = signbit(nanosecs)
     
