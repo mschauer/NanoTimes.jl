@@ -29,7 +29,7 @@ const Offset0 = UInt8('0')
 @inline two_chars_to_key(place10::Char, place1::Char) =
     placevalue_key(two_chars_to_uints(place10, place1)...)
 
-str1_to_int(str::String) = @inbounds Place1s[ char_to_value(str[1]) ]
+str1_to_int(str::String) = @inbounds Place1s[ char_to_uint(str[1]) ]
 
 str2_to_int(str::String) =  @inbounds PlaceValue[ two_chars_to_key(str[1], str[2]) ]
 
