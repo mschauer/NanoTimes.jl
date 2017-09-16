@@ -34,12 +34,12 @@ const Offset0 = UInt8('0')
 	Place1s[ char_to_value(str[1]) ]
 end
 
-@inline str2_to_int(str::String)
+@inline function str2_to_int(str::String)
     @inbounds return
 	PlaceValue[ two_chars_to_key(str[1], str[2]) ]
 end
 
-@inline str3_to_int(str::String)
+@inline function str3_to_int(str::String)
     @inbounds return
     100 * PlaceValue[ two_chars_to_key('0', str[1]) ] +
           PlaceValue[ two_chars_to_key(str[2], str[3]) ]
