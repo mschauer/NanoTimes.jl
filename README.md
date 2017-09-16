@@ -12,5 +12,5 @@
    &diamond; provides a clean, easy-to-understand functional interface    
    &diamond; enhances the ability to work with mixed time masures    
    &diamond; covers all levels of FINRA, MiFID II timestamp precision    
-        &nbsp;&nbsp;&nbsp;&nbsp;(compliance also requires UTC tracability)
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(compliance requires more than that)
 
