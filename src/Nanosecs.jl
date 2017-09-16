@@ -48,6 +48,6 @@ include("types/Span/string.jl")
 include("types/Span/io.jl")
 include("types/Span/arith.jl")
 
-include("types/mixed/time_and_span.jl")
+include("types/mixed/Clock_Span.jl")
 
 end # module
