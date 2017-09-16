@@ -10,7 +10,7 @@
 
    &diamond; fully interoperable with DateTime, Date, Time types    
    &diamond; provides a clean, easy-to-understand functional interface    
-   &diamond; enhances the ability to work with mixed time masures    
+   &diamond; enhances the ability to work with mixed time masures   
    &diamond; covers all levels of FINRA, MiFID II timestamp precision    
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(timestamp compliance also uses UTC tracing)
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(fully compliant timestamps require UTC tracability)
 
