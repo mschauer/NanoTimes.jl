@@ -47,4 +47,6 @@ include("types/NanoSpan/string.jl")
 include("types/NanoSpan/io.jl")
 include("types/NanoSpan/arith.jl")
 
+include("types/mixed/time_and_span.jl")
+
 end # module
