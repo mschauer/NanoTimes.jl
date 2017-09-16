@@ -7,9 +7,13 @@
 - Spans are measures in time: +(3 days), -(5 microseconds), +(1 week 2 days)
 
 ==============
-(a) fully interoperable with DateTime, Date, Time types
-(b) provides a clean, easy-to-understand functional interface
-(c) enhances the ability to work with mixed time masures
-(d) timestamp precision supports all 2018 FINRA, MiFID II
-    regulations (UTC tracable accuracy reqiores hardware).
+
+   &diamond; fully interoperable with DateTime, Date, Time types
+   
+   &diamond; provides a clean, easy-to-understand functional interface
+   
+   &diamond; enhances the ability to work with mixed time masures
+   
+   &diamond; timestamp precision supports all 2018 FINRA, MiFID II
+        regulations (UTC tracable accuracy reqiores hardware).
 
