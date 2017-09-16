@@ -22,7 +22,9 @@ const PlaceValue = gen_placevalue_dict()
 const UIdigits = Union{Vector{UInt8}, Tuple{UInt8}, NTuple{2,UInt8}, NTuple{3,UInt8}, NTuple{4,UInt8}}
 
 const Offset0 = UInt8('0') - one(UInt8)
-@inline char_to_uint(char::Char) = UInt8(x) - Offset0
+
+@inline char_to_uint(char::Char) = UInt8(char) - Offset0
+
 @inline two_chars_to_uints(place10::Char, place1::Char) =
     char_to_uint(place10), char_to_uint(place1)
 @inline str2_to_uints(str::String) = two_chars_to_uints(str[1], str[2])
