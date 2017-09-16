@@ -1,4 +1,3 @@
-
 function gen_placevalue_dict()
     placevalue = Dict( 0x00 => 0, 0x01 => 1, 0x10 => 0x0a)f
     for place10s in 0:9
@@ -13,7 +12,9 @@ function gen_placevalue_dict()
     return placevalue
 end
 
-const PlaceValue = copy(gen_placevalue_dict())
+
+const Place1s    = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+const PlaceValue = gen_placevalue_dict()
 
 @inline placevalue_key(place10::UInt8, place1::UInt8) = place10 << 4 | place1
 
@@ -28,33 +29,28 @@ const Offset0 = UInt8('0') - one(UInt8)
 
 @inline two_chars_to_key(place10::Char, place1::Char) =
     placevalue_key(two_chars_to_uings(place10, place1)...)
-@inline str2_to_key(str::String) = two_chars_to_key(str[1], str[2])
 
-str2_to_int(str::String) =
+str1_to_int(str::String) = Place1s[ char_to_value(str[1]) ]
 
+str2_to_int(str::String) = PlaceValue[ two_chars_to_key(str[1], str[2]) ]
 
-chars_to_uints(chars::Vector{Char}) = map(x -> UInt8(x) - Offset0, chars)
-string_to_uints(str::String) = chars_to_uints([str...])
+str3_to_int(str::String) = 100 * PlaceValue[ two_chars_to_key('0', str[1]) ]+
+                                 PlaceValue[ two_chars_to_key(str[2], str[3]) ]
 
-const Place1s    = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-const Place10s   = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
-const Place100s  = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900]
-const Place1000s = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000]
-
-@inline function uints_to_int(u1::UInt8)
-    return Place1s[u1]
-end
-@inline function uints_to_int(u1::UInt8, u2::UInt8)
-    return Place1s[u2] + Place10s[u1]
-end
-@inline function uints_to_int(u1::UInt8, u2::UInt8, u3::UInt8)
-    return Place1s[u3] + Place10s[u2] + Place100s[u1]
-end
-@inline function uints_to_int(u1::UInt8, u2::UInt8, u3::UInt8, u4::UInt8)
-    return Place1s[u4] + Place10s[u3] + Place100s[u2] + Place1000s[u1]
-end
+str4_to_int(str::String) = 100 * PlaceValue[ two_chars_to_key(str[1], str[2]) ]+
+                                 PlaceValue[ two_chars_to_key(str[3], str[4]) ]
 
 function str_to_int(str::String)
-    uints = string_to_uints(str)
-    return uints_to_int(uints...)
+    n = min(4,length(str))
+    result = 0
+    if n == 2
+        result = str2_to_int(str)
+    elseif n == 3
+        result = str3_to_int(str)
+    elseif n == 4
+        result = str4_to_int(str)
+    elseif n == 1
+        result = str1_to_int(str)
+    end
+    return result
 end
