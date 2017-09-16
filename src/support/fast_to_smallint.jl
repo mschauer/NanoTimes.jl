@@ -1,9 +1,9 @@
 function gen_placevalue_dict()
     placevalue = Dict( 0x00 => 0, 0x01 => 1, 0x10 => 0x0a)
     for place10s in 0:9
-        place10 = UInt8(place10)
+        place10 = UInt8(place10s)
         for place1s in 0:9
-            place1 = UInt8(place10)
+            place1 = UInt8(place1s)
             key = (place10 << 4) | place1
             value = place10 * 0x0a + place1
             placevalue[ key ] = value
