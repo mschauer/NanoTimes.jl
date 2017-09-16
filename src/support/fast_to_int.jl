@@ -15,11 +15,23 @@ end
 
 const PlaceValue = copy(gen_placevalue_dict())
 
+@inline placevalue_key(place10::UInt8, place1::UInt8) = place10 << 4 | place1
 
 
 const UIdigits = Union{Vector{UInt8}, Tuple{UInt8}, NTuple{2,UInt8}, NTuple{3,UInt8}, NTuple{4,UInt8}}
 
 const Offset0 = UInt8('0') - one(UInt8)
+@inline char_to_uint(char::Char) = UInt8(x) - Offset0
+@inline two_chars_to_uints(place10::Char, place1::Char) =
+    char_to_uint(place10), char_to_uint(place1)
+@inline str2_to_uints(str::String) = two_chars_to_uints(str[1], str[2])
+
+@inline two_chars_to_key(place10::Char, place1::Char) =
+    placevalue_key(two_chars_to_uings(place10, place1)...)
+@inline str2_to_key(str::String) = two_chars_to_key(str[1], str[2])
+
+str2_to_int(str::String) =
+
 
 chars_to_uints(chars::Vector{Char}) = map(x -> UInt8(x) - Offset0, chars)
 string_to_uints(str::String) = chars_to_uints([str...])
