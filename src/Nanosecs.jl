@@ -35,9 +35,12 @@ include("types/NanoTime/NanoTime.jl")
 include("types/NanoTime/convert.jl")
 include("types/NanoTime/parts.jl")
 include("types/NanoTime/string.jl")
+include("types/NanoTime/io.jl")
 
 include("types/NanoSpan/NanoSpan.jl")
 include("types/NanoSpan/convert.jl")
 include("types/NanoSpan/parts.jl")
+include("types/NanoSpan/string.jl")
+include("types/NanoSpan/io.jl")
 
 end # module
