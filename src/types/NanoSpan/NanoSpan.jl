@@ -4,6 +4,7 @@ end
 
 @inline value(x::NanoSpan{T}) where T<:IntTimes = x.value
  
+Base.promote_type(::Type{NanoSpan{Int64}}, ::Type{NanoSpan{Int128}}) = NanoSpan{Int128}
 Base.promote_rule(::Type{NanoSpan{Int64}}, ::Type{NanoSpan{Int128}}) = NanoSpan{Int128}
 Base.convert(::Type{NanoSpan{Int128}}, x::NanoSpan{Int64}) = NanoSpan{Int128}(value(x))
 function Base.convert(::Type{NanoSpan{Int64}}, x::NanoSpan{Int128})
