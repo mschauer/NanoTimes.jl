@@ -9,9 +9,9 @@ end
 
 for P in (:Nanosecond, :Microsecond, :Millisecond, :Second, :Minute, :Hour, :Day, :Week)
     @eval begin
-        (+)(x::NanoSpan{I}, p::$P) where I<:IntTypes = NanoSpan{I}(nanosecs(x) + nanosecs(p))
-        (+)(p::$P, x::NanoSpan{I}) where I<:IntTypes = NanoSpan{I}(nanosecs(x) + nanosecs(p))
-        (-)(x::NanoSpan{I}, p::$P) where I<:IntTypes = NanoSpan{I}(nanosecs(x) - nanosecs(p))
-        (-)(p::$P, x::NanoSpan{I}) where I<:IntTypes = NanoSpan{I}(nanosecs(x) - nanosecs(p))
+        (+)(x::NanoSpan{I}, p::$P) where I<:IntTimes = NanoSpan{I}(nanosecs(x) + nanosecs(p))
+        (+)(p::$P, x::NanoSpan{I}) where I<:IntTimes = NanoSpan{I}(nanosecs(x) + nanosecs(p))
+        (-)(x::NanoSpan{I}, p::$P) where I<:IntTimes = NanoSpan{I}(nanosecs(x) - nanosecs(p))
+        (-)(p::$P, x::NanoSpan{I}) where I<:IntTimes = NanoSpan{I}(nanosecs(x) - nanosecs(p))
     end
 end
