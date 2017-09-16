@@ -1,11 +1,3 @@
-#=
-    
-Approach Sketched 
-
-all input strings are one, two, tree or four decimal digits
-
-=$
-
 const UIdigits = Union{Vector{UInt8}, Tuple{UInt8}, NTuple{2,UInt8}, NTuple{3,UInt8}, NTuple{4,UInt8}}
 
 const Offset0 = UInt8('0') - one(UInt8)
@@ -30,7 +22,6 @@ end
 @inline function uints_to_ints(u1::UInt8, u2::UInt8, u3::UInt8, u4::UInt8)
     return Place1s[u4] + Place10s[u3] + Place100s[u2] + Place1000s[u1]
 end
-
 
 function str_to_int(str::String)
     uints = string_to_uints(str)
