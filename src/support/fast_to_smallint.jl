@@ -28,7 +28,7 @@ const Offset0 = UInt8('0') - one(UInt8)
 @inline str2_to_uints(str::String) = two_chars_to_uints(str[1], str[2])
 
 @inline two_chars_to_key(place10::Char, place1::Char) =
-    placevalue_key(two_chars_to_uings(place10, place1)...)
+    placevalue_key(two_chars_to_uints(place10, place1)...)
 
 str1_to_int(str::String) = Place1s[ char_to_value(str[1]) ]
 
