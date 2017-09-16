@@ -10,7 +10,7 @@ time2 = Time(datm2)
 
 ddate = date2 - date1
 ddtm  = datm2 - datm1
-dtime = dtime2 - dtime1
+dtime = time2 - time1
 
 ndate1 = NanoTime(date1)
 ndate2 = NanoTime(date2)
