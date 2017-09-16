@@ -1,5 +1,7 @@
 const POSITIVE = '+'
 const NEGATIVE = '−'
+const PLUSMINUS = '±'
+const MINUSPLUS = '∓'
 const HMS_SEP  = ':'
 const DYHR_SEP = 'd'
 const YMD_SEP  = '-'
