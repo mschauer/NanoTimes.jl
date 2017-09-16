@@ -30,6 +30,7 @@ const IntTime  = Int64                   # one of IntTimes
 include("types/Abstract.jl")
 include("types/Clock/Clock.jl")
 include("types/Span/Span.jl")
+include("types/hash.jl")
 
 include("support/chars.jl")
 include("support/granular_consts.jl")
