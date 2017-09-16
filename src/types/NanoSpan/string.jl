@@ -10,8 +10,8 @@ function Base.string(x::NanoSpan{T}) where T
     hrs = hour(x)
     dys = day(x)
     nanos  = nanosecs  === zero(T) ? "" : threedigits(nanosecs)
-    micros = microsecs === zero(T) ? "" : threedigits(micros)
-    millis = millisecs === zero(T) ? "" : threedigits(millis)
+    micros = microsecs === zero(T) ? "" : threedigits(microsecs)
+    millis = millisecs === zero(T) ? "" : threedigits(millisecs)
     subsecs = string(millis, micros, nanos)
     
     subgranular = length(subsecs) > 0
