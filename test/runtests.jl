@@ -3,7 +3,7 @@ using Base.Test
 
 date1 = Date("1995-02-17")
 date2 = Date("2012-04-18")
-datm1 = DateTime("1995-02-17T03:22:!7.012")
+datm1 = DateTime("1995-02-17T03:22:17.012")
 datm2 = DateTime("2012-04-18T17:13:08")
 time1 = Time(datm1)
 time2 = Time(datm2)
