@@ -1,6 +1,7 @@
 const POSITIVE = '+'
 const NEGATIVE = '−'
 const HMS_SEP  = ':'
+const DYHR_SEP = 'd'
 const YMD_SEP  = '-'
 const DEC_PT   = '.'
 const DTM_SEP  = 'T'
