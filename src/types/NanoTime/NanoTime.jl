@@ -13,5 +13,3 @@ function Base.convert(::Type{NanoTime{Int64}}, x::NanoTime{Int128})
     end
     return NanoTime{Int64}(value(x))
 end
-
-
