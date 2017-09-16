@@ -10,16 +10,16 @@ const Place10s   = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 const Place100s  = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 const Place1000s = [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000]
 
-@inline function uints_to_ints(u1::UInt8)
+@inline function uints_to_int(u1::UInt8)
     return Place1s[u1]
 end
-@inline function uints_to_ints(u1::UInt8, u2::UInt8)
+@inline function uints_to_int(u1::UInt8, u2::UInt8)
     return Place1s[u2] + Place10s[u1]
 end
-@inline function uints_to_ints(u1::UInt8, u2::UInt8, u3::UInt8)
+@inline function uints_to_int(u1::UInt8, u2::UInt8, u3::UInt8)
     return Place1s[u3] + Place10s[u2] + Place100s[u1]
 end
-@inline function uints_to_ints(u1::UInt8, u2::UInt8, u3::UInt8, u4::UInt8)
+@inline function uints_to_int(u1::UInt8, u2::UInt8, u3::UInt8, u4::UInt8)
     return Place1s[u4] + Place10s[u3] + Place100s[u2] + Place1000s[u1]
 end
 
