@@ -13,4 +13,4 @@
    &diamond; enhances the ability to work with mixed time masures   
    &diamond; covers all levels of FINRA, MiFID II timestamp precision
    
->  The 2018 US and EU financial regulations governing timestamps require the local time server be within 100 microsecods of UTC (an internationally coordinated time using leap seconds -- a rare 61st second at the end of an hour).
+>  The 2018 US and EU financial regulations governing timestamps require the local time server consistently be within 100 microsecods of UTC (an internationally coordinated time using leap seconds -- a rare 61st second at the end of an hour).
