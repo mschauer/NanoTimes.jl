@@ -2,7 +2,7 @@ const UIdigits = Union{Vector{UInt8}, Tuple{UInt8}, NTuple{2,UInt8}, NTuple{3,UI
 
 const Offset0 = UInt8('0') - one(UInt8)
 
-chars_to_uints(cOhars::Vector{Char}) = map(x -> UInt8(x) - Offset0, chars)
+chars_to_uints(chars::Vector{Char}) = map(x -> UInt8(x) - Offset0, chars)
 string_to_uints(str::String) = chars_to_uints([str...])
 
 const Place1s    = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
