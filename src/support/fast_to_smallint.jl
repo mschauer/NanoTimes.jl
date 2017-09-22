@@ -66,6 +66,6 @@ function str_to_int(str::String, targetType::Integer=Int)
         elseif n == 1
             result = str1_to_int(str)
         end
-	end
-	return targetType(result)
+    end
+    return targetType(result)
 end
