@@ -51,7 +51,7 @@ end
           PlaceValue[ two_chars_to_key(str[3], str[4]) ]
 end
 
-function str_to_int(str::String, targetType::Integer=Int)
+function str_to_smallint(str::String, targetType::Integer=Int)
     n = length(str)
     result = 0
     if iseven(n)
