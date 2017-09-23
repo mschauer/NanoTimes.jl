@@ -1,6 +1,6 @@
 __precompile__()
 
-module Nanosecs
+module NanoTimes
 
  # this module exports its own Time (aka Clock), use Time24 for the other
 export Time, Span,
