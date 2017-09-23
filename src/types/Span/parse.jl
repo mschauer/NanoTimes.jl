@@ -23,7 +23,7 @@ function Base.parse(::Type{Span}, str::String)
     else
         throw(ErrorException("$(str) is not recognized as a Timespan value"))
     end
-    date = strs[1] != "" : parse(Date, strs[1]) : 0
+    date = strs[1] != "" ? parse(Date, strs[1]) : 0
     if contains(strs[2],'.')
        strs = split(strs[2], '.')
        time = parse(Base.Dates.Time, strs[1])
