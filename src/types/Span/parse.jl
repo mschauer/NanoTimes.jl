@@ -5,17 +5,29 @@ function Base.parse(::Type{Span}, str::String)
     isneg = str[1] === NEGATIVE || str[1] === '-'
     ispos = str[1] == POSITIVE
     if isneg || ispos
-        str = str[4:end]
+        str = str[nextind(str,1):end]
     else
         ispos = true
     end
+    
+    daycount = 0
+    if contains(str, 'd')
+        idx_d = collect(1:length(str))['d' .== [str...]][1]
+        nidx = 1
+        for i in 1:idx_d-2
+            nidx = nextind(str, nidx)
+        end
+        daycount = parse(Int64, str[1:idx_d])
+        str = str[nidx(str,nidx_d):end]
+    end    
+    
     n = length(str)
     if contains(str, 'T')
         strs = split(str,'T')
     elseif contains(str, ' ')
         strs = split(str,' ')
     elseif n == 6
-        strs = [string("20",str[1:2],'-',str[3:4],'-',str[5:6]), ""]
+        strs = [string("ju20",str[1:2],'-',str[3:4],'-',str[5:6]), ""]
     elseif n == 10
         strs = [str, ""]
     elseif str[3] == HMS_SEP
