@@ -31,8 +31,3 @@ import Base: (+), (-)
 (+)(x::Span{I}, y::DateTime) where I<:IntTimes = Clock{I}(y) + x
 (+)(x::Span{I}, y::Date) where I<:IntTimes = Clock{I}(y) + x
 (+)(x::Span{I}, y::Time24) where I<:IntTimes = x + Span{I}(y)
-
-
-(+)(x::Span{I}, y::Clock{I}) where I<:IntTimes = Clock{I}(nanoseconds(x) + nanoseconds(y))
-(-)(x::Span{I}, y::Clock{I}) where I<:IntTimes =
-    throw(ErrorException("Span-Clock is invalid;  write Clock-Span."))
