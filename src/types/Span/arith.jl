@@ -13,7 +13,7 @@ end
 (-)(x::Span{I1}, y::Span{I2}) where {I1<:IntTimes, I2<:IntTimes} = (-)(promote(x, y)...)
 (-)(x::Span{I}, y::Time) where I<:IntTimes = (-)(x, Span{I}(y))
 (-)(x::DateTime, y::Span{I}) where I<:IntTimes = (-)(Clock{I}(x), y)
-(-)(x::Date, y::Span{I}) where I<:IntTimes = (-)(Clock{I{(x), y)
+(-)(x::Date, y::Span{I}) where I<:IntTimes = (-)(Clock{I}(x), y)
 
 
 (+)(x::Span{I}, y::Time) where I<:IntTimes = (+)(x, Span{I}(y))
