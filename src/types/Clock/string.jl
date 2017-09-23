@@ -29,6 +29,10 @@ function Base.string(x::Clock{T}, subsec_digits::Int) where T
     tmstr = string(tm)
     if !contains(tmstr, '.') && subsec_digits>0
         tmstr = string(tmstr, '.', ZEROCHARS[subsec_digits+1])
+    elseif subsec_digits == 0
+        if contains(tmstr, '.')
+            tmstr = split(tmstr,'.')[1]
+        end
     else
         tmstrs = split(tmstr, '.')
         n = length(tmstrs[2])
@@ -37,7 +41,7 @@ function Base.string(x::Clock{T}, subsec_digits::Int) where T
         elseif n < subsec_digits
             tmstrs[2] = string(tmstrs[2], ZEROCHARS[subsec_digits+1-length(tmstrs[2])])
         end
-        tmstr = join(tmstrs)
+        tmstr = join(tmstrs, '.')
     end
     return string(dt, 'T', tmstr)
  end    
