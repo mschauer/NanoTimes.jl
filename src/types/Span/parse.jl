@@ -1,5 +1,3 @@
-const ZEROHOUR = parse(Time, "00:00:00")
-
 function Base.parse(::Type{Span}, str::String)
     str = strip(str)
     isneg = str[1] === NEGATIVE || str[1] === '-'
