@@ -1,4 +1,4 @@
-# Nanosecs.jl
+# NanoTimes.jl
 #### Copyright &copy;2017 by Jeffrey Sarnoff.  All rights reserved.
 ----------
 ### timestamps, times&sdot;of&sdot;day, durations that understand nanoseconds
