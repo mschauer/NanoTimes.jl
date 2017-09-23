@@ -1,7 +1,7 @@
 # Nanosecs.jl
 #### Copyright &copy;2017 by Jeffrey Sarnoff.  All rights reserved.
 ----------
-### timestamps, times&sdot;of&sdot;day, durations with nanoseconds
+### timestamps, times&sdot;of&sdot;day, durations that understand nanoseconds
 #### algorithms preserve temporal relationships and local precision
 
 - Times are moments of time: your clock and calendar
