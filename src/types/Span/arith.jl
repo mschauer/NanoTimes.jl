@@ -29,12 +29,12 @@ function (-)(x::Span{I}, y::Span{I}) where I<:IntTimes
 end
 
 (-)(x::Span{I1}, y::Span{I2}) where {I1<:IntTimes, I2<:IntTimes} = (-)(promote(x, y)...)
-(-)(x::Span{I}, y::Time) where I<:IntTimes = (-)(x, Span{I}(y))
+(-)(x::Span{I}, y::Base.Dates.Time) where I<:IntTimes = (-)(x, Span{I}(y))
 (-)(x::DateTime, y::Span{I}) where I<:IntTimes = (-)(Clock{I}(x), y)
 (-)(x::Date, y::Span{I}) where I<:IntTimes = (-)(Clock{I}(x), y)
 
-(+)(x::Span{I}, y::Time) where I<:IntTimes = (+)(x, Span{I}(y))
-(+)(x::Time, y::Span{I}) where I<:IntTimes = (+)(y, Span{I}(x))
+(+)(x::Span{I}, y::Base.Dates.Time) where I<:IntTimes = (+)(x, Span{I}(y))
+(+)(x::Base.Dates.Time, y::Span{I}) where I<:IntTimes = (+)(y, Span{I}(x))
 
 (*)(x::Span{I1}, y::I2) where I1<:IntTimes where I2<:Integer = Span(I1(nanoseconds(x) * y))
 (*)(x::I2, y::Span{I1}) where I1<:IntTimes where I2<:Integer = Span(I1(nanoseconds(y) * x))
