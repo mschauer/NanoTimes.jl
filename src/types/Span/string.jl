@@ -53,3 +53,20 @@ function Base.string(x::Span{T}) where T
 
     return result
 end
+
+# settable subsecond precision
+
+function Base.string(x::Span{T}, subsec_digits::Int) where T
+    if signbit(subsec_digits) || subsec_digits > 9
+        throw(ErrorException("Subseconds use 0..9 digits, not $(subsec_digits)"))
+    end
+    tmstr = string(x)
+    if !contains(tmstr, '.') && subsec_digits>0
+        tmstr = string(tmstr, '.', zerochars[subsec_digits+1])
+    else
+        tmstrs = split(tmstr, '.')
+        tmstrs[2] = string(tmstrs[2], zerochars[subsec_digits+1-length(tmstrs[2])])
+        tmstr = join(tmstrs)
+    end
+    return tmstr
+end    
