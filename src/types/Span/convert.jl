@@ -37,6 +37,8 @@ function Span(; days::Int64=0,
     return Span(dnanosec)
 end
 
+Span(str::String) = parse(Span, str)
+
 function Span(x::DateTime)
     error("use Clock(x::DateTime), not Span(x::DateTime)")
 end
