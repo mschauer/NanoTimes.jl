@@ -2,7 +2,7 @@
 #### Copyright &copy;2017 by Jeffrey Sarnoff.  All rights reserved.
 ----------
 ### dates with times&sdot;of&sdot;day and durations that understand nanoseconds
-### timestamps with selectable subsecond precision
+### timestamps with settable, zero-filling subsecond precision
 #### algorithms preserve temporal relationships and local precision
 
 - Times are moments of time: your clock and calendar
