@@ -26,8 +26,8 @@ This package does not know whether a conforming time server is present.  The tim
 | Years .. Nanoseconds | this and coarser componants in this form |
 | years .. nanoseconds | the raw Int64 value above |
 
-- The Year, Quarter, Month &etc forms are used with Times
-- The Hour .. Nanosecond &etc forms are used with Times and with Spans
-- The singular and plural forms of Day, Week &etc do the same thing
+- The Year[s], Quarter[s], Month[s] forms are used with Times
+- The Hour[s] .. Nanosecond[s] forms are used with Times and with Spans
+- The Day and Days are synonyms, Week and Weeks are synonyms
 
 ----------
