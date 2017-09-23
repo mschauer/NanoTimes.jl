@@ -15,8 +15,8 @@ Span(x::Day)  = Span{Int64}(x.value * NANOSECONDS_PER_DAY)
 Span(x::Hour) = Span{Int64}(x.value * NANOSECONDS_PER_HOUR)
 Span(x::Minute) = Span{Int64}(x.value * NANOSECONDS_PER_MINUTE)
 Span(x::Second) = Span{Int64}(x.value * NANOSECONDS_PER_SECOND)
-Span(x::Millisecond) = Span{Int64}(x.value * NANOSECONDS_PER_MILLISEC)
-Span(x::Microsecond) = Span{Int64}(x.value * NANOSECONDS_PER_MICROSEC)
+Span(x::Millisecond) = Span{Int64}(x.value * NANOSECONDS_PER_MILLISECOND)
+Span(x::Microsecond) = Span{Int64}(x.value * NANOSECONDS_PER_MICROSECOND)
 Span(x::Nanosecond)  = Span{Int64}(x.value)
 
 
