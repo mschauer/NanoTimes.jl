@@ -61,5 +61,3 @@ dnspan = nspan2 - nspan1
 @test -nspan1 == div((-3 * nspan1), 3)
 @test -nspan1 == cld((-5 * nspan1), 5)
 @test -nspan1 == fld((-7 * nspan1), 7)
-
-dn
