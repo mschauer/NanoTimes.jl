@@ -42,12 +42,14 @@ include("types/Clock/parts.jl")
 include("types/Clock/string.jl")
 include("types/Clock/io.jl")
 include("types/Clock/arith.jl")
+include("types/Clock/parse.jl")
 
 include("types/Span/convert.jl")
 include("types/Span/parts.jl")
 include("types/Span/string.jl")
 include("types/Span/io.jl")
 include("types/Span/arith.jl")
+include("types/Span/parse.jl")
 
 include("types/mixed/Clock_Span.jl")
 
