@@ -27,5 +27,3 @@ function Base.parse(::Type{Clock}, str::String)
     end
     return Clock(date, time)
 end
-
-Clock(str::String) = parse(Clock, str)
