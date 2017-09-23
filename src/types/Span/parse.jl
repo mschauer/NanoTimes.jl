@@ -12,13 +12,9 @@ function Base.parse(::Type{Span}, str::String)
     
     daycount = 0
     if contains(str, 'd')
-        idx_d = collect(1:length(str))['d' .== [str...]][1]
-        nidx = 1
-        for i in 1:idx_d-3
-            nidx = nextind(str, nidx)
-        end
-        daycount = parse(Int64, str[1:idx_d])
-        str = str[nidx(str,nidx_d):end]
+        daystr, str = split(str, 'd')
+        daycount = parse(Int64, daystr)
+        str = lstrip(str)
     end    
     
     n = length(str)
@@ -46,5 +42,6 @@ function Base.parse(::Type{Span}, str::String)
        time = parse(Base.Dates.Time,strs[2])
     end
     result = date==0 ? Span(time) : Span(date, time)
+    result = daycount == 0 ? result : result + Day(daycount)
     return isneg ? -result : result
 end
