@@ -14,7 +14,7 @@ function Base.parse(::Type{Span}, str::String)
     if contains(str, 'd')
         idx_d = collect(1:length(str))['d' .== [str...]][1]
         nidx = 1
-        for i in 1:idx_d-2
+        for i in 1:idx_d-3
             nidx = nextind(str, nidx)
         end
         daycount = parse(Int64, str[1:idx_d])
