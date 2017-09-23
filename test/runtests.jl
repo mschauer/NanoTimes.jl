@@ -23,16 +23,18 @@ dndatm = ndatm2 - ndatm1
 dndate = ndate2 - ndate1
 dnspan = nspan2 - nspan1
 
+@test date1 - dtime == DateTime(ndate1 - nspan)
+@test date1 + dtime == DateTime(ndate1 + nspan)
+
 @test dndatm == Span(ddatm)
 @test dndate == Span(ddate)
 @test dnspan == Span(time2 - time1)
 
-@test ndate1 = parse(Clock, string(ndate1))
-@test ndatm2 = parse(Clock, string(ndatm2))
-@test nspan1 = parse(Span, string(span1))
-@test -dnspan = -parse(Span, string(dnspan))
+@test ndate1 == parse(Clock, string(ndate1))
+@test ndatm2 == parse(Clock, string(ndatm2))
+@test nspan1 == parse(Span, string(span1))
+@test -dnspan == -parse(Span, string(dnspan))
 
 
-@test date1 - dtime == DateTime(ndate1 - nspan)
-@test date1 + dtime == DateTime(ndate1 + nspan)
+
 =#
