@@ -20,20 +20,19 @@ Span(x::Microsecond) = Span{Int64}(x.value * NANOSECONDS_PER_MICROSECOND)
 Span(x::Nanosecond)  = Span{Int64}(x.value)
 
 
-function Span(; days::Int64=0,
-                    hours::Int64=0,
-                    minutes::Int64=0,
-                    seconds::Int64=0,
-                    milliseconds::Int64=0,
-                    microseconds::Int64=0,
-                    nanoseconds::Int64=0)
-    dnanosec = nanoseconds
+
+function Span(; weeks::I=0, days::I=0,
+                 hours::I=0, minutes::I=0, seconds::I=0,
+                 milliseconds::I=0, microseconds::I=0, 
+                 nanoseconds::I=0) where I<:IntSpans
+    dnanosec = promote_type(Int64, I)(nanoseconds)
     dnanosec += microseconds * NANOSECONDS_PER_MICROSECOND
     dnanosec += milliseconds * NANOSECONDS_PER_MILLISECOND
     dnanosec += seconds * NANOSECONDS_PER_SECOND
     dnanosec += minutes * NANOSECONDS_PER_MINUTE
     dnanosec += hours * NANOSECONDS_PER_HOUR
     dnanosec += days * NANOSECONDS_PER_DAY
+    dnanosec += weeks * NANOSECONDS_PER_WEEK
     return Span(dnanosec)
 end
 
