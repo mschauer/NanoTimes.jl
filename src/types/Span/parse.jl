@@ -17,7 +17,7 @@ function Base.parse(::Type{Span}, str::String)
     date = parse(Date, strs[1])
     if contains(strs[2],'.')
        strs = split(strs[2], '.')
-       time = parse(Base.Dates.Time, strs[1]
+       time = parse(Base.Dates.Time, strs[1])
        time += Base.Dates.Nanosecond(parse(Int64, strs[2]))
     elseif length(strs[2]) == 0
        time = ZEROHOUR
