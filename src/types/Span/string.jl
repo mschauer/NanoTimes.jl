@@ -65,7 +65,12 @@ function Base.string(x::Span{T}, subsec_digits::Int) where T
         tmstr = string(tmstr, '.', ZEROCHARS[subsec_digits+1])
     else
         tmstrs = split(tmstr, '.')
-        tmstrs[2] = string(tmstrs[2], ZEROCHARS[subsec_digits+1-length(tmstrs[2])])
+        n = length(tmstrs[2])
+        if n > subsec_digits
+            tmstrs[2] = tmstrs[2][1:subsec_digits]
+        elseif n < subsec_digits
+            tmstrs[2] = string(tmstrs[2], ZEROCHARS[subsec_digits+1-length(tmstrs[2])])
+        end
         tmstr = join(tmstrs)
     end
     return tmstr
