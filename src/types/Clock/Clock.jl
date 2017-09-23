@@ -2,8 +2,6 @@ struct Clock{T} <: AbstractClock{T}
     value::T
 end
 
-@inline Clock(x::I) where I<:IntTimes = Clock{I}(x)
-
 @inline value(x::Clock{T}) where T<:IntTimes = x.value
 
 Clock(value::T) where T<:IntTimes = Clock{T}(value)
