@@ -56,6 +56,6 @@ include("types/mixed/Clock_Span.jl")
 include("types/mixed/arith.jl")
 include("types/mixed/periods.jl")
 
-end # module
-
 const Time = Nanosecs.Clock
+
+end # module
