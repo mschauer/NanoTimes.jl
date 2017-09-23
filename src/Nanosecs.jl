@@ -56,8 +56,6 @@ include("types/mixed/Clock_Span.jl")
 include("types/mixed/arith.jl")
 include("types/mixed/periods.jl")
 
-Time(x::Base.Dates.DateTime) = Clock(x)
-
 end # module
 
-const Time = Nanosecs.Time
+const Time = Nanosecs.Clock
