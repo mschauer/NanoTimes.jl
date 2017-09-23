@@ -1,17 +1,21 @@
 function Base.parse(::Type{Clock}, str::String)
     str = strip(str)
-    n = length(str)
     if contains(str, 'T')
         strs = split(str,'T')
     elseif contains(str, ' ')
         strs = split(str,' ')
-    elseif n == 6
-        strs = [string("20",str[1:2],'-',str[3:4],'-',str[5:6]), ""]
-    elseif n == 10
-        strs = [str, ""]
     else
+        strs = [str, ""]
+    end
+    n = length(strs[1])
+    if n == 6
+        strs[1] = string("20",strs[1][1:2],'-',strs[1][3:4],'-',strs[1][5:6])
+    elseif n == 8
+        strs[1] = string(strs[1][1:4],'-',strs[1][5:6],'-',strs[1][7:8])
+    elseif n < 10
         throw(ErrorException("$(str) is not recognized as a Date[+TimeOfDay] value"))
     end
+    
     date = parse(Date, strs[1])
     if contains(strs[2],'.')
        strs = split(strs[2], '.')
