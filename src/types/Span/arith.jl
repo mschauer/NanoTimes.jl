@@ -1,5 +1,10 @@
 import Base: (+), (-)
 
+function (+)(x::Span{I}, y::Span{I}) where I<:IntTimes
+    nanos = nanoseconds(x) + nanoseconds(y)
+    return Span(nanos)
+end
+
 function (-)(x::Span{I}, y::Span{I}) where I<:IntTimes
     nanos = nanoseconds(x) - nanoseconds(y)
     return Span(nanos)
