@@ -21,9 +21,9 @@ end
 
 for P in (:Nanosecond, :Microsecond, :Millisecond, :Second, :Minute, :Hour, :Day, :Week)
     @eval begin
-        (+)(x::Span{I}, p::$P) where I<:IntTimes = Span{I}(nanosecs(x) + nanosecs(p))
-        (+)(p::$P, x::Span{I}) where I<:IntTimes = Span{I}(nanosecs(x) + nanosecs(p))
-        (-)(x::Span{I}, p::$P) where I<:IntTimes = Span{I}(nanosecs(x) - nanosecs(p))
-        (-)(p::$P, x::Span{I}) where I<:IntTimes = Span{I}(nanosecs(x) - nanosecs(p))
+        (+)(x::Span{I}, p::$P) where I<:IntTimes = Span{I}(nanoseconds(x) + nanoseconds(p))
+        (+)(p::$P, x::Span{I}) where I<:IntTimes = Span{I}(nanoseconds(x) + nanoseconds(p))
+        (-)(x::Span{I}, p::$P) where I<:IntTimes = Span{I}(nanoseconds(x) - nanoseconds(p))
+        (-)(p::$P, x::Span{I}) where I<:IntTimes = Span{I}(nanoseconds(x) - nanoseconds(p))
     end
 end
