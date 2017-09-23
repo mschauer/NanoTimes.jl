@@ -10,7 +10,7 @@
 #### interoperates with Base.Dates
 
 - interoperates with Date and DateTime, which are exported
-- interoperates with Base.Dates.Time, exported as **Time24**
+- exports Base.Dates.Time as **Time24**, and interoperates
 - interoperates with Base.Dates.Period types, which are exported
 
 ----
