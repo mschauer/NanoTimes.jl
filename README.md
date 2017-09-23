@@ -25,7 +25,7 @@ This package does not know whether a conforming time server is present.  The tim
 
 ======
 
-| form | use |
+| forms | use |
 |------|-----|
 | &nbsp; | &nbsp; |
 | Year .. Nanosecond | access the componant itself |
