@@ -33,12 +33,19 @@ end
 (-)(x::DateTime, y::Span{I}) where I<:IntTimes = (-)(Clock{I}(x), y)
 (-)(x::Date, y::Span{I}) where I<:IntTimes = (-)(Clock{I}(x), y)
 
-
 (+)(x::Span{I}, y::Time) where I<:IntTimes = (+)(x, Span{I}(y))
 (+)(x::Time, y::Span{I}) where I<:IntTimes = (+)(y, Span{I}(x))
 
 (*)(x::Span{I1}, y::I2) where I1<:IntTimes where I2<:Integer = Span(I1(nanoseconds(x) * y))
 (*)(x::I2, y::Span{I1}) where I1<:IntTimes where I2<:Integer = Span(I1(nanoseconds(y) * x))
+
+(Base.div)(x::Span{I}, y::Span{I}) where I<:IntTimes = div(nanoseconds(x), nanoseconds(y))
+(Base.fld)(x::Span{I}, y::Span{I}) where I<:IntTimes = fld(nanoseconds(x), nanoseconds(y))
+(Base.cld)(x::Span{I}, y::Span{I}) where I<:IntTimes = cld(nanoseconds(x), nanoseconds(y))
+(Base.mod)(x::Span{I}, y::Span{I}) where I<:IntTimes = mod(nanoseconds(x), nanoseconds(y))
+(Base.rem)(x::Span{I}, y::Span{I}) where I<:IntTimes = rem(nanoseconds(x), nanoseconds(y))
+(Base.divrem)(x::Span{I}, y::Span{I}) where I<:IntTimes = div(x,y), rem(x,y)
+(Base.fldmod)(x::Span{I}, y::Span{I}) where I<:IntTimes = fld(x,y), mod(x,y)
 
 (Base.div)(x::Span{I1}, y::I2) where I1<:IntTimes where I2<:Integer = Span(I1(div(nanoseconds(x), y)))
 (Base.fld)(x::Span{I1}, y::I2) where I1<:IntTimes where I2<:Integer = Span(I1(fld(nanoseconds(x), y)))
@@ -47,15 +54,6 @@ end
 (Base.rem)(x::Span{I1}, y::I2) where I1<:IntTimes where I2<:Integer = Span(I1(rem(nanoseconds(x), y)))
 (Base.divrem)(x::Span{I1}, y::I2) where I1<:IntTimes where I2<:Integer = div(x,y), rem(x,y)
 (Base.fldmod)(x::Span{I1}, y::I2) where I1<:IntTimes where I2<:Integer = fld(x,y), mod(x,y)
-
-(Base.div)(x::Span{I}, y::Span{I}) where I<:IntTimes = Span(div(nanoseconds(x), nanoseconds(y)))
-(Base.fld)(x::Span{I}, y::Span{I}) where I<:IntTimes = Span(fld(nanoseconds(x), nanoseconds(y)))
-(Base.cld)(x::Span{I}, y::Span{I}) where I<:IntTimes = Span(cld(nanoseconds(x), nanoseconds(y)))
-(Base.mod)(x::Span{I}, y::Span{I}) where I<:IntTimes = Span(mod(nanoseconds(x), nanoseconds(y)))
-(Base.rem)(x::Span{I}, y::Span{I}) where I<:IntTimes = Span(rem(nanoseconds(x), nanoseconds(y)))
-(Base.divrem)(x::Span{I}, y::Span{I}) where I<:IntTimes = div(x,y), rem(x,y)
-(Base.fldmod)(x::Span{I}, y::Span{I}) where I<:IntTimes = fld(x,y), mod(x,y)
-
 
 for P in (:Nanosecond, :Microsecond, :Millisecond, :Second, :Minute, :Hour, :Day, :Week)
     @eval begin
