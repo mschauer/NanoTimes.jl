@@ -6,7 +6,7 @@ end
 
 Clock(value::T) where T<:IntTimes = Clock{T}(value)
 
-function Clock(value<:T) where T
+function Clock(value::T) where T
     try
          return convert(Clock, value)
      catch e
