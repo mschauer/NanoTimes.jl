@@ -40,7 +40,7 @@ function Clock(; year::I=year(now()), month::I=1,
     dnanosec += hour * NANOSECONDS_PER_HOUR
     dnanosec += day * NANOSECONDS_PER_DAY
     dnanosec += week * NANOSECONDS_PER_WEEK
-    return clock(dnanosec)
+    return Clock(dnanosec)
 end
 
 function Clock{I}(x::Base.Dates.Time) where I<:IntTimes
