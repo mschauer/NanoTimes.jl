@@ -27,19 +27,19 @@ end
 
 Clock(str::String) = parse(Clock, str)
 
-function Clock(; years::I=year(now()), months::I=1,
-                 weeks::I=0, days::I=0,
-                 hours::I=0, minutes::I=0, seconds::I=0,
-                 milliseconds::I=0, microseconds::I=0, 
-                 nanoseconds::I=0) where I<:IntSpans
-    dnanosec = promote_type(Int64, I)(nanoseconds)
-    dnanosec += microseconds * NANOSECONDS_PER_MICROSECOND
-    dnanosec += milliseconds * NANOSECONDS_PER_MILLISECOND
-    dnanosec += seconds * NANOSECONDS_PER_SECOND
-    dnanosec += minutes * NANOSECONDS_PER_MINUTE
-    dnanosec += hours * NANOSECONDS_PER_HOUR
-    dnanosec += days * NANOSECONDS_PER_DAY
-    dnanosec += weeks * NANOSECONDS_PER_WEEK
+function Clock(; year::I=year(now()), month::I=1,
+                 week::I=0, day::I=0,
+                 hour::I=0, minute::I=0, second::I=0,
+                 millisecond::I=0, microsecond::I=0, 
+                 nanosecond::I=0) where I<:IntSpans
+    dnanosec = promote_type(Int64, I)(nanosecond)
+    dnanosec += microsecond * NANOSECONDS_PER_MICROSECOND
+    dnanosec += millisecond * NANOSECONDS_PER_MILLISECOND
+    dnanosec += second * NANOSECONDS_PER_SECOND
+    dnanosec += minute * NANOSECONDS_PER_MINUTE
+    dnanosec += hour * NANOSECONDS_PER_HOUR
+    dnanosec += day * NANOSECONDS_PER_DAY
+    dnanosec += week * NANOSECONDS_PER_WEEK
     return clock(dnanosec)
 end
 
