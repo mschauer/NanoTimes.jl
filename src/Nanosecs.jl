@@ -13,7 +13,7 @@ export Clock, Span,
     weeks, days, hours, minutes, seconds,
     milliseconds, microseconds, nanoseconds
 
-using Base.Dates
+#using Base.Dates
 import Base.Dates:Date, DateTime,
     datetime2rata, rata2datetime,
     datetime2unix, unix2datetime,
