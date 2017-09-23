@@ -3,7 +3,7 @@ __precompile__()
 module Nanosecs
 
 export Clock, Span,
-    Base.Dates.Date, Nanosecs.Time, Base.Dates.DateTime,
+    Base.Dates.Date, Time, Base.Dates.DateTime,
     Year, Month, Week, Day, Hour, Minute, Second,
     Millisecond, Microsecond, Nanosecond,
     year, month, week, day, hour, minute, second,
