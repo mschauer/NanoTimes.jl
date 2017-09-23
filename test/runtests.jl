@@ -60,3 +60,8 @@ dnspan = nspan2 - nspan1
 @test -nspan1 == div((-3 * nspan1), 3)
 @test -nspan1 == cld((-5 * nspan1), 5)
 @test -nspan1 == fld((-7 * nspan1), 7)
+
+@test parse(Time, "2017-01-02T12:34:56.7654321") = Time(2017,01,02,12,34,56,765,432,1)
+@test parse(Time, "20170102 12:34:56.7654321") = Time(2017,01,02,12,34,56,765,432,1)
+@test parse(Time, "170102 12:34:56.7654321") = Time(2017,01,02,12,34,56,765,432,1)
+
