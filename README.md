@@ -18,7 +18,7 @@ This package does not know whether a conforming time server is present.  The tim
 
 ====
 
-| forms | accessing |
+| forms | access |
 |------|-----|
 | &nbsp; | &nbsp; |
 | Year .. Nanosecond | the componant itself |
@@ -26,3 +26,8 @@ This package does not know whether a conforming time server is present.  The tim
 | Years .. Nanoseconds | this and coarser componants in this form |
 | years .. nanoseconds | the raw Int64 value above |
 
+- The Year, Quarter, Month &etc forms are used with Times
+- The Hour .. Nanosecond &etc forms are used with Times and with Spans
+- The singular and plural forms of Day, Week &etc do the same thing
+
+----------
