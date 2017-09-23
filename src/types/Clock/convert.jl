@@ -28,7 +28,7 @@ end
 Clock(str::String) = parse(Clock, str)
 
 function Clock{I}(x::Base.Dates.Time) where I<:IntTimes
-    error("use Span(x::Time), not Clock(x::Time)")
+    error("use Span(x::Base.Dates.Time), not Clock(x::Base.Dates.Time)")
 end
 
 function Date(x::Clock{I}) where I<:IntTimes
