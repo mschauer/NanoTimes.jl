@@ -16,7 +16,7 @@
 >  The 2018 US, EU financial regulations governing timestamps require stamped times encode UTC ±50 microseconds.
 This package does not know whether a conforming time server is present.  The timestamps will be precise; where the time base is UTC traceable and stable,  the timestamps will comply with FINRA and MiFID II 2018 regulations.
 
-====
+~~~~~~~
 
 | forms | access |
 |------|-----|
