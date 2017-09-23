@@ -1,4 +1,4 @@
-struct Span{T} <: AbstractSpan
+struct Span{T} <: AbstractSpan{T}
     value::T
 end
 
