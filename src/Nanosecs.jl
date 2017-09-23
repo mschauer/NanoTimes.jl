@@ -3,7 +3,7 @@ __precompile__()
 module Nanosecs
 
 export Clock, Span,
-    Date, Time, DateTime,
+    Base.Dates.Date, Nanosecs.Time, Base.Dates.DateTime,
     Year, Month, Week, Day, Hour, Minute, Second,
     Millisecond, Microsecond, Nanosecond,
     year, month, week, day, hour, minute, second,
@@ -14,7 +14,7 @@ export Clock, Span,
     milliseconds, microseconds, nanoseconds
 
 using Base.Dates
-import Base.Dates: Date, Time, DateTime,
+import Base.Dates.Date, Base.Dates.Time, Base.Dates.DateTime,
     datetime2rata, rata2datetime,
     datetime2unix, unix2datetime,
     date2epochdays, epochdays2date,
@@ -55,5 +55,7 @@ include("types/Span/parse.jl")
 include("types/mixed/Clock_Span.jl")
 include("types/mixed/arith.jl")
 include("types/mixed/periods.jl")
+
+Nanosecs.Time(x::Base.Dates.DateTime) = Clock(x)
 
 end # module
