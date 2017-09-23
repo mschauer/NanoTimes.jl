@@ -1,4 +1,4 @@
-struct Clock{T} <: AbstractClock{T}
+struct Clock{T} <: AbstractTimeDate{T}
     value::T
 end
 
