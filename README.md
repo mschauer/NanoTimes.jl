@@ -38,3 +38,6 @@ This package does not know whether a conforming time server is present.  The tim
 - The Day and Days are synonyms, Week and Weeks are synonyms
 
 ----------
+
+see [these tests](https://github.com/JeffreySarnoff/Nanosecs.jl/blob/master/test/runtests.jl) for a fuller view
+
