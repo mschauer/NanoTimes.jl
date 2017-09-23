@@ -1,7 +1,8 @@
 # NanoTimes.jl
 #### Copyright &copy;2017 by Jeffrey Sarnoff.  All rights reserved.
 ----------
-### dates with times&sdot;of&sdot;day, durations and timestamping that understand nanoseconds
+### dates with times&sdot;of&sdot;day and durations that understand nanoseconds
+### timestamps with selectable precision (will zero-pad as required)
 #### algorithms preserve temporal relationships and local precision
 
 - Times are moments of time: your clock and calendar
