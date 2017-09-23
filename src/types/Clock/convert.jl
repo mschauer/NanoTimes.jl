@@ -38,9 +38,8 @@ function Clock(; year::I=year(now()), month::I=1,
     dnanosec += second * NANOSECONDS_PER_SECOND
     dnanosec += minute * NANOSECONDS_PER_MINUTE
     dnanosec += hour * NANOSECONDS_PER_HOUR
-    dnanosec += day * NANOSECONDS_PER_DAY
     dnanosec += week * NANOSECONDS_PER_WEEK
-    return Clock(dnanosec)
+    return Clock(Date(year, month, day)) + Span(dnanosec)
 end
 
 function Clock{I}(x::Base.Dates.Time) where I<:IntTimes
