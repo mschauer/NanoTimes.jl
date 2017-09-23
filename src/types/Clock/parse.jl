@@ -18,7 +18,7 @@ function Base.parse(::Type{Clock}, str::String)
     if contains(strs[2],'.')
        strs = split(strs[2], '.')
        time = parse(Base.Dates.Time, strs[1]
-       time += Base.Dates.Nanosecond(parse(Int64, strs[2])
+       time += Base.Dates.Nanosecond(parse(Int64, strs[2]))
     elseif length(strs[2]) == 0
        time = ZEROHOUR
     else
