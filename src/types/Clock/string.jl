@@ -20,8 +20,6 @@ end
 
 # settable subsecond precision
 
-const zerochars = ["", "0", "00", "000", "0000", "00000", "000000", "0000000", "00000000", "000000000"]
-
 function Base.string(x::Clock{T}, subsec_digits::Int) where T
     if signbit(subsec_digits) || subsec_digits > 9
         throw(ErrorException("Subseconds use 0..9 digits, not $(subsec_digits)"))
@@ -30,10 +28,10 @@ function Base.string(x::Clock{T}, subsec_digits::Int) where T
     tm = Time24(x)
     tmstr = string(tm)
     if !contains(tmstr, '.') && subsec_digits>0
-        tmstr = string(tmstr, '.', zerochars[subsec_digits+1])
+        tmstr = string(tmstr, '.', ZEROCHARS[subsec_digits+1])
     else
         tmstrs = split(tmstr, '.')
-        tmstrs[2] = string(tmstrs[2], zerochars[subsec_digits+1-length(tmstrs[2])])
+        tmstrs[2] = string(tmstrs[2], ZEROCHARS[subsec_digits+1-length(tmstrs[2])])
         tmstr = join(tmstrs)
     end
     return string(dt, 'T', tmstr)
