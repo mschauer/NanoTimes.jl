@@ -1,13 +1,12 @@
-function Span(x::Time)
-    return Span(x.instant.value)
+function Span{I}(x::Time) where I<:IntTimes
+    return Span(I(x.instant.value))
 end
 
-function Span(x::CompoundPeriod)
-    nanosecs = sum(map(a->Nanosecond(a), x.periods))
+function Span{I}(x::CompoundPeriod) where I<:IntTimes
+    nanosecs = I(sum(map(a->Nanosecond(a), x.periods)))
     return Span(nanosecs.value)
 end
 
-Span(x::Week) = Span(x.value * NANOSECONDS_PER_WEEK)
 Span(x::Day)  = Span(x.value * NANOSECONDS_PER_DAY)
 Span(x::Hour) = Span(x.value * NANOSECONDS_PER_HOUR)
 Span(x::Minute) = Span(x.value * NANOSECONDS_PER_MINUTE)
