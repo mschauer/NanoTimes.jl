@@ -1,5 +1,3 @@
-const ZEROHOUR = parse(Time, "00:00:00")
-
 function Base.parse(::Type{Clock}, str::String)
     str = strip(str)
     n = length(str)
