@@ -48,6 +48,14 @@ end
 (Base.divrem)(x::Span{I1}, y::I2) where I1<:IntTimes where I2<:Integer = div(x,y), rem(x,y)
 (Base.fldmod)(x::Span{I1}, y::I2) where I1<:IntTimes where I2<:Integer = fld(x,y), mod(x,y)
 
+(Base.div)(x::Span{I}, y::Span{I}) where I<:IntTimes = Span(div(nanoseconds(x), nanoseconds(y)))
+(Base.fld)(x::Span{I}, y::Span{I}) where I<:IntTimes = Span(fld(nanoseconds(x), nanoseconds(y)))
+(Base.cld)(x::Span{I}, y::Span{I}) where I<:IntTimes = Span(cld(nanoseconds(x), nanoseconds(y)))
+(Base.mod)(x::Span{I}, y::Span{I}) where I<:IntTimes = Span(mod(nanoseconds(x), nanoseconds(y)))
+(Base.rem)(x::Span{I}, y::Span{I}) where I<:IntTimes = Span(rem(nanoseconds(x), nanoseconds(y)))
+(Base.divrem)(x::Span{I}, y::Span{I}) where I<:IntTimes = div(x,y), rem(x,y)
+(Base.fldmod)(x::Span{I}, y::Span{I}) where I<:IntTimes = fld(x,y), mod(x,y)
+
 
 for P in (:Nanosecond, :Microsecond, :Millisecond, :Second, :Minute, :Hour, :Day, :Week)
     @eval begin
