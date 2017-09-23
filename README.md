@@ -22,7 +22,7 @@ This package does not know whether a conforming time server is present.  The tim
 |------|-----|
 | &nbsp; | &nbsp; |
 | Year .. Nanosecond | the componant itself |
-| year .. nanosecond | the raw value above |
+| year .. nanosecond | the raw Int64 value above |
 | Years .. Nanoseconds | this and coarser componants in this form |
-| years .. nanoseconds | the raw value above |
+| years .. nanoseconds | the raw Int64 value above |
 
