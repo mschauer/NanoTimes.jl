@@ -24,8 +24,8 @@ dndatm = ndatm2 - ndatm1
 dndate = ndate2 - ndate1
 dnspan = nspan2 - nspan1
 
-@test date1 - dtime == DateTime(ndate1 - nspan)
-@test date1 + dtime == DateTime(ndate1 + nspan)
+@test DateTime(date1) - dtime == DateTime(ndate1 - dnspan)
+@test DateTime(date1) + dtime == DateTime(ndate1 + dnspan)
 
 @test dndatm == Span(ddatm)
 @test dndate == Span(ddate)
