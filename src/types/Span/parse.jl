@@ -18,7 +18,7 @@ function Base.parse(::Type{Span}, str::String)
         strs = [string("20",str[1:2],'-',str[3:4],'-',str[5:6]), ""]
     elseif n == 10
         strs = [str, ""]
-    elseif str[3] == COLON
+    elseif str[3] == HMS_SEP
         strs = ["", str]
     else
         throw(ErrorException("$(str) is not recognized as a Timespan value"))
