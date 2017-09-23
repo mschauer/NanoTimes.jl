@@ -1,14 +1,15 @@
 function Base.string(x::Span{T}) where T
-    nanosecs = nanosecond(x)
-    isneg = signbit(nanosecs)
-    
-    nanosecs = abs(nanosecs)
-    microsecs = microsecond(x)
-    millisecs = millisecond(x)
-    scs = second(x)
-    mns = minute(x)
-    hrs = hour(x)
-    dys = day(x)
+    isneg = signbit(nanoseconds(x))    
+    y = Span(abs(nanoseconds(x))
+        
+    nanosecs = nanosecond(y)
+    microsecs = microsecond(y)
+    millisecs = millisecond(y)
+    scs = second(y)
+    mns = minute(y)
+    hrs = hour(y)
+    dys = day(y)
+        
     nanos  = nanosecs  === zero(T) ? "" : threedigits(nanosecs)
     micros = microsecs === zero(T) ? "" : threedigits(microsecs)
     millis = millisecs === zero(T) ? "" : threedigits(millisecs)
