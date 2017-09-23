@@ -16,19 +16,13 @@
 >  The 2018 US, EU financial regulations governing timestamps require stamped times encode UTC ±50 microseconds.
 This package does not know whether a conforming time server is present.  The timestamps will be precise; where the time base is UTC traceable and stable,  the timestamps will comply with FINRA and MiFID II 2018 regulations.
 
--------
+====
 
-- Year, .., Nanosecond access that componant, ignoring other parts
-- Years, .., Nanoseconds express that component and all coarser parts in terms of that component
-- year, .., nanosecond deliver the raw (Int64) value for that componant
-- years, .., nanoseconds deliver the raw (Int64) value from Years, .., Nanoseconds
-
-======
-
-| forms | use |
+| forms | accessing |
 |------|-----|
 | &nbsp; | &nbsp; |
-| Year .. Nanosecond | access the componant itself |
-| year .. nanosecond | access the raw value above |
-| Years .. Nanoseconds | access this and coarser componants in this form |
-| years .. nanoseconds | access the raw value above |
+| Year .. Nanosecond | the componant itself |
+| year .. nanosecond | the raw value above |
+| Years .. Nanoseconds | this and coarser componants in this form |
+| years .. nanoseconds | the raw value above |
+
