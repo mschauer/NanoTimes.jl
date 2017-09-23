@@ -14,7 +14,7 @@ export Clock, Span,
     milliseconds, microseconds, nanoseconds
 
 using Base.Dates
-import Base.Dates.Date, Base.Dates.Time, Base.Dates.DateTime,
+import Base.Dates:Date, DateTime,
     datetime2rata, rata2datetime,
     datetime2unix, unix2datetime,
     date2epochdays, epochdays2date,
