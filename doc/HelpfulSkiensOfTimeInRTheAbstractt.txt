@@ -1,0 +1,75 @@
+#=>
+
+    skiens of time
+	in the abstract
+	                      Jeffrey Sarnoff
+						    2017-Sep-16
+
+		 
+
+	TemporalAbstraction
+
+        Occurant wholes, persisting parts, and
+	    transitory melds have temporal presence.
+		
+		Any temporal abstraction may have other
+		substantive aspects and purposeful uses.
+		For example, a heraldic mchronology may
+		confer Duchy ownership.
+		                                    
+<=#  abstract type TemporalAbstraction end
+#=>
+     Calendric Clocks
+	     
+		 Moments are the granular expressions of events.
+	     Events are the concretion of copresent moments.
+		 
+		 
+	 Clocks:      Simple    Monotonic      Helical	 
+
+     Calendars:   Civil      Religious     Commercial
+	 
+	 
+	 
+	 
+<=# 
+abstract type TimeKeeping <: TemporalAbstraction
+
+abstract type Clock{T} <: TimeKeeping end
+abstract type SimpleClock{T}    <: Clock{T} end
+abstract type MonotonicClock{T} <: Clock{T} end
+abstract type ManagedClock{T}   <: Clock{T} end
+abstract type PTPPClock{T} <: ManagedClock{T}
+
+abstract type Calendar{T} <: TimeKeeping end
+abstract type BusinessCalendar{T} <: Calendar{T} end
+
+
+#=>
+                     arrow-like?       event-like?
+					 
+	 Duration       (nondirectional,    unattached)
+	 Span           (oriented {+,-},   may  attach)
+	 Interval       (past[ .. )future, must attach) 
+
+<=#
+abstract type TimeMeasuring <: TemporalAbstraction
+
+abstract type AbstractDuration{T} <: TimeMeasuring{T} end
+abstract type AbstractTimeSpan{T} <: TimeMeasuring{T} end
+
+#=>
+	 TemporalAbstraction
+		
+          TimeKeepings
+		  
+		      Dates+Times, PlacedTimes, Calendars,
+			  Astronomical Dates, Interconversion
+		
+ 		  TimeMeasuring
+		  
+		      Granular Periods, Durations,
+			  Timespans, Interval Relations,
+			  Astrophysical Metrics
+			   
+<=#
