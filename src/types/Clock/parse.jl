@@ -12,7 +12,7 @@ function Base.parse(::Type{Clock}, str::String)
     elseif n == 10
         strs = [str, ""]
     else
-        throw ErrorException("$(str) is not recognized as a Date[+TimeOfDay] value")
+        throw(ErrorException("$(str) is not recognized as a Date[+TimeOfDay] value"))
     end
     date = parse(Date, strs[1])
     if contains(strs[2],'.')
