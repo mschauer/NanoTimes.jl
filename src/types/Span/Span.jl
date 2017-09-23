@@ -6,7 +6,7 @@ end
 
 Span(value::T) where T<:IntTimes = Span{T}(value)
 
-function Span(value<:T) where T
+function Span(value::T) where T
     try
          return convert(Span, value)
      catch e
