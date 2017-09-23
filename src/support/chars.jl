@@ -11,6 +11,9 @@ const DTM_SEP  = 'T'
 const UT_SFX   = 'Ƶ'
 const UTC_SFX  = 'Z'
 
+
+const ZEROCHARS = ["", "0", "00", "000", "0000", "00000", "000000", "0000000", "00000000", "000000000"]
+
 @inline posneg(isneg::Bool) = isneg ? NEGATIVE : POSITIVE
 
 @inline function twodigits(x::Integer)
