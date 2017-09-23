@@ -10,10 +10,10 @@ end
 (-)(x::DateTime, y::Clock{I}) where I<:IntTimes = (-)(Clock{I}(x), y)
 (-)(x::Clock{I}, y::Date) where I<:IntTimes = (-)(x, Clock{I}(y))
 (-)(x::Date, y::Clock{I}) where I<:IntTimes = (-)(Clock{I}(x), y)
-(-)(x::Clock{I}, y::Time) where I<:IntTimes = (-)(x, Span{I}(y))
+(-)(x::Clock{I}, y::Base.Dates.Time) where I<:IntTimes = (-)(x, Span{I}(y))
 
-(+)(x::Clock{I}, y::Time) where I<:IntTimes = (+)(x, Span{I}(y))
-(+)(x::Time, y::Clock{I}) where I<:IntTimes = (+)(y, Span{I}(x))
+(+)(x::Clock{I}, y::Base.Dates.Time) where I<:IntTimes = (+)(x, Span{I}(y))
+(+)(x::Base.Dates.Time, y::Clock{I}) where I<:IntTimes = (+)(y, Span{I}(x))
 
 for P in (:Nanosecond, :Microsecond, :Millisecond, :Second, :Minute, :Hour, :Day, :Week)
     @eval begin
