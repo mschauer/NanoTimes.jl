@@ -52,5 +52,6 @@ include("types/Span/arith.jl")
 include("types/Span/parse.jl")
 
 include("types/mixed/Clock_Span.jl")
+include("types/mixed/arith.jl")
 
 end # module
