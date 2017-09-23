@@ -1,8 +1,8 @@
-function Span{I}(x::Time) where I<:IntTimes
+function Span{I}(x::Base.Dates.Time) where I<:IntTimes
     return Span(I(x.instant.value))
 end
 
-@inline Span(x::Time) = Span{Int64}(x)
+@inline Span(x::Base.Dates.Time) = Span{Int64}(x)
 
 function Span{I}(x::CompoundPeriod) where I<:IntTimes
     nanosecs = I(sum(map(a->Nanosecond(a), x.periods)))
