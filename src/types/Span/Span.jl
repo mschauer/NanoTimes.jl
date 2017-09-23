@@ -13,5 +13,3 @@ function Span(value::T) where T <:AbstractTime
          throw(e)
      end
 end
-
-Span(str::String) = parse(Span, str)
