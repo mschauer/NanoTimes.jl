@@ -5,7 +5,7 @@
 #### algorithms preserve temporal relationships and local precision
 - Times are moments of time: your clock and calendar
 - Spans are measures in time: +(3 days), -(5 microseconds), +(1 week 2 days)
-- useTime24 when you need Base.Dates.Time
+- use Time24 should you need Base.Dates.Time
 ----
 
    &diamond; fully interoperable with DateTime, Date, Time24 types    
