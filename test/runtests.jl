@@ -2,8 +2,6 @@ using Nanosecs
 using Base.Dates
 using Base.Test
 
-const Time = Nanosecs.Time
-
 date1 = Date("1995-02-17")
 date2 = Date("2012-04-18")
 datm1 = DateTime("1995-02-17T03:22:17.012")
