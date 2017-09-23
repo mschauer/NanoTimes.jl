@@ -5,7 +5,7 @@ function Base.parse(::Type{Span}, str::String)
     isneg = str[1] === NEGATIVE || str[1] === '-'
     ispos = str[1] == POSITIVE
     if isneg || ispos
-        str = str[2:end]
+        str = str[4:end]
     else
         ispos = true
     end
