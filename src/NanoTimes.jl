@@ -34,6 +34,9 @@ include("types/Clock/Clock.jl")
 include("types/Span/Span.jl")
 include("types/hash.jl")
 
+const Time = Clock
+const Time24 = Base.Dates.Time
+
 include("support/chars.jl")
 include("support/granular_consts.jl")
 include("support/rata_conversion.jl")
@@ -56,8 +59,5 @@ include("types/Span/parse.jl")
 include("types/mixed/Clock_Span.jl")
 include("types/mixed/arith.jl")
 include("types/mixed/periods.jl")
-
-const Time = Clock
-const Time24 = Base.Dates.Time
 
 end # module
