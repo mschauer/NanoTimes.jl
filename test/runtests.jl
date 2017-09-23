@@ -54,3 +54,10 @@ dnspan = nspan2 - nspan1
 @test Hours(ndatm3) == Hour(hours(ndatm3))
 @test Days(ndatm3) == Day(days(ndatm3))
 @test Weeks(ndatm3) == Week(weeks(ndatm3))
+
+@test nspan1 == div((3 * nspan1), 3)
+@test nspan1 == cld((5 * nspan1), 5)
+@test nspan1 == fld((7 * nspan1), 7)
+@test -nspan1 == div((-3 * nspan1), 3)
+@test -nspan1 == cld((-5 * nspan1), 5)
+@test -nspan1 == fld((-7 * nspan1), 7)
