@@ -7,9 +7,9 @@ function Base.parse(::Type{Clock}, str::String)
         strs = split(str,'T')
     elseif contains(str, ' ')
         strs = split(str,' ')
-    elseif n=6
+    elseif n == 6
         strs = [string("20",str[1:2],'-',str[3:4],'-',str[5:6]), ""]
-    elseif n=10
+    elseif n == 10
         strs = [str, ""]
     else
         throw ErrorException("$(str) is not recognized as a Date[+TimeOfDay] value")
