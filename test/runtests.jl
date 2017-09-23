@@ -9,7 +9,7 @@ time1 = Time(datm1)
 time2 = Time(datm2)
 
 ddate = date2 - date1
-ddtm  = datm2 - datm1
+ddatm = datm2 - datm1
 dtime = time2 - time1
 
 ndate1 = Clock(date1)
@@ -18,8 +18,20 @@ ndatm1 = Clock(datm1)
 ndatm2 = Clock(datm2)
 nspan1 = Span(time1)
 nspan2 = Span(time2)
-#= 
-nspan  = nspan2 - nspan1
+
+dndatm = ndatm2 - ndatm1
+dndate = ndate2 - ndate1
+dnspan = nspan2 - nspan1
+
+@test dndatm == Span(ddatm)
+@test dndate == Span(ddate)
+@test dnspan == Span(time2 - time1)
+
+@test ndate1 = parse(Clock, string(ndate1))
+@test ndatm2 = parse(Clock, string(ndatm2))
+@test nspan1 = parse(Span, string(span1))
+@test -dnspan = -parse(Span, string(dnspan))
+
 
 @test date1 - dtime == DateTime(ndate1 - nspan)
 @test date1 + dtime == DateTime(ndate1 + nspan)
