@@ -25,6 +25,7 @@ end
 
 @inline Clock(dat::Date, tim::Time) = Clock{Int64}(dat, tim)
 
+Clock(str::String) = parse(Clock, str)
 
 function Clock{I}(x::Time) where I<:IntTimes
     error("use Span(x::Time), not Clock(x::Time)")
