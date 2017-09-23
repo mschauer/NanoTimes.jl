@@ -62,10 +62,10 @@ function Base.string(x::Span{T}, subsec_digits::Int) where T
     end
     tmstr = string(x)
     if !contains(tmstr, '.') && subsec_digits>0
-        tmstr = string(tmstr, '.', zerochars[subsec_digits+1])
+        tmstr = string(tmstr, '.', ZEROCHARS[subsec_digits+1])
     else
         tmstrs = split(tmstr, '.')
-        tmstrs[2] = string(tmstrs[2], zerochars[subsec_digits+1-length(tmstrs[2])])
+        tmstrs[2] = string(tmstrs[2], ZEROCHARS[subsec_digits+1-length(tmstrs[2])])
         tmstr = join(tmstrs)
     end
     return tmstr
