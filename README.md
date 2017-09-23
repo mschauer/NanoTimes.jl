@@ -30,5 +30,5 @@ This package does not know whether a conforming time server is present.  The tim
 | &nbsp; | &nbsp; |
 | Year .. Nanosecond | access the componant itself |
 | year .. nanosecond | access the raw value above |
-| Years .. Nanoseconds | access this and coarser componants summed into this form |
+| Years .. Nanoseconds | access this and coarser componants in this form |
 | years .. nanoseconds | access the raw value above |
