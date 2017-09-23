@@ -7,7 +7,7 @@
 - Times are moments of time: your clock and calendar
 - Spans are measures in time: +(3 days), -(5 microseconds), +(1 week 2 days)
 
-#### interoperates with Base.Dates
+#### brings in Base.Dates
 
 - interoperates with Date and DateTime, which are exported
 - exports Base.Dates.Time as **Time24**, and interoperates
