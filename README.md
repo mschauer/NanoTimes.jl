@@ -23,3 +23,12 @@ This package does not know whether a conforming time server is present.  The tim
 - year, .., nanosecond deliver the raw (Int64) value for that componant
 - years, .., nanoseconds deliver the raw (Int64) value from Years, .., Nanoseconds
 
+======
+
+| form | use |
+|------|-----|
+| Year .. Nanosecond | access the componant itself |
+| year .. nanosecond | access the raw value above |
+| &nbsp; | &nbsp; |
+| Years .. Nanoseconds | access the componant with all coarser ones |
+| years .. nanoseconds | access the raw value above |
