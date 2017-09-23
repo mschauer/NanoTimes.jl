@@ -12,6 +12,9 @@ end
 (-)(x::Date, y::Clock{I}) where I<:IntTimes = (-)(Clock(x), y)
 (-)(x::Clock{I}, y::Time) where I<:IntTimes = (-)(x, Span(y))
 
+(+)(x::Clock{I}, y::Time) where I<:IntTimes = (+)(x, Span(y))
+(+)(x::Time, y::Clock{I}) where I<:IntTimes = (+)(y, Span(x))
+
 for P in (:Nanosecond, :Microsecond, :Millisecond, :Second, :Minute, :Hour, :Day, :Week)
     @eval begin
         (+)(x::Clock{I}, p::$P) where I<:IntTimes = Clock{I}(nanosecs(x) + nanosecs(p))
