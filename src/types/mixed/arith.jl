@@ -14,10 +14,10 @@ import Base: (+), (-)
     throw(ErrorException("Span-Clock is invalid;  write Clock-Span."))
 
 
-(-)(x::Clock{I}, y::DateTime) where I<:IntTimes = Span{I}(x - Clock{I}(y))
-(-)(x::DateTime, y::Clock{I}) where I<:IntTimes = Span{I}(Clock{I}(x) - y)
-(-)(x::Clock{I}, y::Date) where I<:IntTimes = Span{I}(x - Clock{I}(y))
-(-)(x::Date, y::Clock{I}) where I<:IntTimes = Span{I}(Clock{I}(x) - y)
+(-)(x::Clock{I}, y::DateTime) where I<:IntTimes = x - Clock{I}(y)
+(-)(x::DateTime, y::Clock{I}) where I<:IntTimes = Clock{I}(x) - y
+(-)(x::Clock{I}, y::Date) where I<:IntTimes = x - Clock{I}(y)
+(-)(x::Date, y::Clock{I}) where I<:IntTimes = Clock{I}(x) - y
 (-)(x::Clock{I}, y::Time24) where I<:IntTimes = x - Span{I}(y)
 
 (-)(x::DateTime, y::Span{I}) where I<:IntTimes = Clock{I}(x) - y
