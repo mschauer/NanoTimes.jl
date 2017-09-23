@@ -33,5 +33,5 @@ dnspan = nspan2 - nspan1
 
 @test ndate1 == parse(Clock, string(ndate1))
 @test ndatm2 == parse(Clock, string(ndatm2))
-@test nspan1 == parse(Span, string(span1))
+@test nspan1 == parse(Span, string(nspan1))
 @test -dnspan == -parse(Span, string(dnspan))
