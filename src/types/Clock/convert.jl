@@ -9,13 +9,13 @@ end
 
 function Clock{I}(dtm::DateTime) where I<:IntTimes
     dat = Date(dtm)
-    tim = Time(dtm)
+    tim = Base.Dates.Time(dtm)
     return Clock{I}(dat, tim)
 end
 
 @inline Clock(dtm::DateTime) = Clock{Int64}(dtm)
 
-function Clock{I}(dat::Date, tim::Time) where I<:IntTimes
+function Clock{I}(dat::Date, tim::Base.Dates.Time) where I<:IntTimes
     rata = date2rata(dat)
     rataguard(rata)
     nanosec = (rata - RATAFIRST) * NANOSECONDS_PER_DAY
@@ -23,11 +23,11 @@ function Clock{I}(dat::Date, tim::Time) where I<:IntTimes
     return Clock(I(nanosec))
 end
 
-@inline Clock(dat::Date, tim::Time) = Clock{Int64}(dat, tim)
+@inline Clock(dat::Date, tim::Base.Dates.Time) = Clock{Int64}(dat, tim)
 
 Clock(str::String) = parse(Clock, str)
 
-function Clock{I}(x::Time) where I<:IntTimes
+function Clock{I}(x::Base.Dates.Time) where I<:IntTimes
     error("use Span(x::Time), not Clock(x::Time)")
 end
 
@@ -37,7 +37,7 @@ function Date(x::Clock{I}) where I<:IntTimes
     return rata2date(dat)
 end
 
-function Time(x::Clock{I}) where I<:IntTimes
+function Base.Dates.Time(x::Clock{I}) where I<:IntTimes
     nanos = round(Int64, nanoseconds(x))
     return Time(Nanosecond(nanos))
 end
