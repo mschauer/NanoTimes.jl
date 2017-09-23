@@ -27,6 +27,20 @@ end
 
 Clock(str::String) = parse(Clock, str)
 
+function Clock(; years::I=year(now()), months::I=1, days::I=0,
+                 hours::I=0, minutes::I=0, seconds::I=0,
+                 milliseconds::I=0, microseconds::I=0, 
+                 nanoseconds::I=0) where I<:IntSpans
+    dnanosec = promote_type(Int64, I)(nanoseconds)
+    dnanosec += microseconds * NANOSECONDS_PER_MICROSECOND
+    dnanosec += milliseconds * NANOSECONDS_PER_MILLISECOND
+    dnanosec += seconds * NANOSECONDS_PER_SECOND
+    dnanosec += minutes * NANOSECONDS_PER_MINUTE
+    dnanosec += hours * NANOSECONDS_PER_HOUR
+    dnanosec += days * NANOSECONDS_PER_DAY
+    return Span(dnanosec)
+end
+
 function Clock{I}(x::Base.Dates.Time) where I<:IntTimes
     error("use Span(x::Base.Dates.Time), not Clock(x::Base.Dates.Time)")
 end
