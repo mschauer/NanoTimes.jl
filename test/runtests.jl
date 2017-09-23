@@ -1,5 +1,4 @@
 using Nanosecs
-using Base.Dates
 using Base.Test
 
 date1 = Date("1995-02-17")
