@@ -17,8 +17,8 @@ end
 
 for P in (:Nanosecond, :Microsecond, :Millisecond, :Second, :Minute, :Hour, :Day, :Week)
     @eval begin
-        (+)(x::Clock{I}, p::$P) where I<:IntTimes = Clock{I}(nanosecs(x) + nanosecs(p))
-        (+)(p::$P, x::Clock{I}) where I<:IntTimes = Clock{I}(nanosecs(x) + nanosecs(p))
-        (-)(x::Clock{I}, p::$P) where I<:IntTimes = Clock{I}(nanosecs(x) - nanosecs(p))
+        (+)(x::Clock{I}, p::$P) where I<:IntTimes = Clock{I}(nanoseconds(x) + nanoseconds(p))
+        (+)(p::$P, x::Clock{I}) where I<:IntTimes = Clock{I}(nanoseconds(x) + nanoseconds(p))
+        (-)(x::Clock{I}, p::$P) where I<:IntTimes = Clock{I}(nanoseconds(x) - nanoseconds(p))
     end
 end
