@@ -70,4 +70,3 @@ time = Time(year=2017, month=1, day=2, hour=12, minute=34, second=56, millisecon
 span = Span(days=2, hours=12, minutes=34, seconds=56, milliseconds=765, microseconds=432, nanoseconds=100)
 
 @test parse(Span, "2d12:34:56.7654321") == span
-
