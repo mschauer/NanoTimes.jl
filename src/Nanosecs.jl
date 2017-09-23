@@ -2,8 +2,9 @@ __precompile__()
 
 module Nanosecs
 
-export Clock, Span,
-    Date, Time, DateTime,
+ # this module exports its own Time (aka Clock), use Time24 for the other
+export Time, Span,
+    Date, DateTime, Time24,
     Year, Month, Week, Day, Hour, Minute, Second,
     Millisecond, Microsecond, Nanosecond,
     year, month, week, day, hour, minute, second,
@@ -57,5 +58,6 @@ include("types/mixed/arith.jl")
 include("types/mixed/periods.jl")
 
 const Time = Nanosecs.Clock
+const Time24 = Base.Dates.Time
 
 end # module
