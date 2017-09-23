@@ -2,12 +2,14 @@ using Nanosecs
 using Base.Dates
 using Base.Test
 
+const Time = Nanosecs.Time
+
 date1 = Date("1995-02-17")
 date2 = Date("2012-04-18")
 datm1 = DateTime("1995-02-17T03:22:17.012")
 datm2 = DateTime("2012-04-18T17:13:08")
-time1 = Time(datm1)
-time2 = Time(datm2)
+time1 = Base.Dates.Time(datm1)
+time2 = Base.Dates.Time(datm2)
 
 ddate = date2 - date1
 ddatm = datm2 - datm1
