@@ -34,7 +34,7 @@ const Offset0 = UInt8('0')
 end
 
 @inline function str2_to_int(str::String)
-    @inbounds PlaceValue[ two_chars_to_key(str[1], str[2]) ]
+    return PlaceValue[ two_chars_to_key(str[1], str[2]) ]
 end
 
 @inline function str3_to_int(str::String)
