@@ -1,5 +1,5 @@
-const YEAR_MO_DY = :YEAR_MO_DY
-const YEAR_MO_DY_HR_MI_SC = :YEAR_MO_DY_HR_MI_SC
+const YEAR_MO_DY = Val{:YEAR_MO_DY}
+const YEAR_MO_DY_HR_MI_SC = Val{:YEAR_MO_DY_HR_MI_SC}
 const YEAR_MO_DY_HR_MI_SCFS = :YEAR_MO_DY_HR_MI_SCFS
 const YEAR_MO_DY_HR_MI_SC_MIL = :YEAR_MO_DY_HR_MI_SC_MIL
 const YEAR_MO_DY_HR_MI_SC_MILMIC = :YEAR_MO_DY_HR_MI_SC_MILMIC
@@ -90,12 +90,19 @@ function parse_yymmdd(s::String)
     return yyyy, mm, dd
 end
 
+# Clock
+
 function parse_yyyy_mm_dd_hh_mm_ss(s::String)
     yyyy, mo, dd = parse_yyyy_mm_dd(s[1:10])
     hh, mi, ss = parse_hh_mm_ss(s[12:19])
     return Clock(yyyy, mo, dd, hh, mi, ss) 
 end
 
+@inline Base.parse(::Type{Clock}, s::String, ::Type{YEAR_MO_DY_HR_MI_SC}) =
+    parse_yyyy_mm_dd_hh_mm_ss(s)
+@inline Base.parse(s::String, ::Type{YEAR_MO_DY_HR_MI_SC}) =
+    parse(Clock, s, YEAR_MO_DY_HR_MI_SC)
+    
 function parse_yyyy_mm_dd_hh_mm_sss(s::String)
     yyyy, mo, dd = parse_yyyy_mm_dd(s[1:10])
     hh, mi, ss = parse_hh_mm_ss(s[12:19])
