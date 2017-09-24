@@ -42,13 +42,12 @@ function Clock(; year::I=I(year(now())), month::I=one(I),
     return Clock(Date(year, month, day)) + Span(dnanosec)
 end
 
-function Cloc(year::Year=Year(now()), month::Month=Month(1),
-                 day::Day=Day(1),
-                 hour::Hour=Hour(0), minute::Minute=Minute(0),
-                 second::Second=Second(0),
-                 millisecond::Millisecond=Millisecond(0),
-                 microsecond::Microsecond=Microsecond(0), 
-                 nanosecond::Nanosecond=Nanosecond(0))
+function Cloc(year::Year=Year(now()), month::Month=Month(1), day::Day=Day(1),
+              hour::Hour=Hour(0), minute::Minute=Minute(0), second::Second=Second(0),
+              millisecond::Millisecond=Millisecond(0),
+              microsecond::Microsecond=Microsecond(0),
+              nanosecond::Nanosecond=Nanosecond(0) )
+    
     return Clock(year=year(year), month=month(month),
                  week=week(week), day=day(day),
                  hour=hour(hour), minute=minute(minute),
