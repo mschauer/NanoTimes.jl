@@ -28,21 +28,6 @@ end
 Clock(str::String) = parse(Clock, str)
 
 function Clock(; year::I=I(year(now())), month::I=one(I),
-                 week::I=zero(I), day::I=one(I),
-                 hour::I=zero(I), minute::I=zero(I), second::I=zero(I),
-                 millisecond::I=zero(I), microsecond::I=zero(I), 
-                 nanosecond::I=zero(I)) where I<:IntSpans
-    dnanosec = promote_type(Int64, I)(nanosecond)
-    dnanosec += microsecond * NANOSECONDS_PER_MICROSECOND
-    dnanosec += millisecond * NANOSECONDS_PER_MILLISECOND
-    dnanosec += second * NANOSECONDS_PER_SECOND
-    dnanosec += minute * NANOSECONDS_PER_MINUTE
-    dnanosec += hour * NANOSECONDS_PER_HOUR
-    dnanosec += week * NANOSECONDS_PER_WEEK
-    return Clock(Date(year, month, day)) + Span(dnanosec)
-end
-
-function Clock(; year::I=I(year(now())), month::I=one(I),
                  day::I=one(I),
                  hour::I=zero(I), minute::I=zero(I), second::I=zero(I),
                  millisecond::I=zero(I), microsecond::I=zero(I), 
