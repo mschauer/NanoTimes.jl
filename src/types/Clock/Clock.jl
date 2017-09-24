@@ -6,7 +6,7 @@ end
 
 Clock(value::T) where T<:IntTimes = Clock{T}(value)
 
-function Clock(value::T) where T<:AbstractTime
+function Clock(value::T) where T<:Base.Dates.AbstractTime
     try
          return convert(Clock, value)
      catch e
