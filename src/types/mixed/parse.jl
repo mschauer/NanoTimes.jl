@@ -1,9 +1,30 @@
+function parse_subseconds(s::String)
+    length(s) == 0 && return 0
+    return parse(Int, s)
+end
+
+function parse_milli_micro_nano(s::String)
+    length(s) >= 9 || throw(ErrorException("length($(s)) < 9"))
+    milli = str3_to_int(s[1:3])
+    micro = str3_to_int(s[4:6])
+    nano  = str3_to_int(s[7:9])
+    return milli, micro, nano
+end
+
 function parse_hh_mm_ss(s::String)
     length(s) >= 8 || throw(ErrorException("length($(s)) < 8"))
     hh = str2_to_int(s[1:2])
     mm = str2_to_int(s[4:5])
     ss = str2_to_int(s[7:8])
     return hh, mm, ss
+end
+
+function parse_ds_hh_mm_ss(s::String)
+    length(s) >= 10 || throw(ErrorException("length($(s)) < 1-"))
+    strs = split(s, 'd')
+    ds = parse(Int, strs[1])
+    hh, mm, ss = parse_hh_mm_ss(strs[2]) 
+    return ds, hh, mm, ss
 end
 
 function parse_hhmmss(s::String)
@@ -42,6 +63,14 @@ function parse_yyyy_mm_dd_hh_mm_ss(s::String)
     yyyy, mo, dd = parse_yyyy_mm_dd(s[1:10])
     hh, mi, ss = parse_hh_mm_ss(s[12:19])
     return Clock(yyyy, mo, dd, hh, mi, ss) 
+end
+
+function parse_yyyy_mm_dd_hh_mm_sss(s::String)
+    yyyy, mo, dd = parse_yyyy_mm_dd(s[1:10])
+    hh, mi, ss = parse_hh_mm_ss(s[12:19])
+    subsecstr = string(s[21:end], ZEROCHARS[9 - (length(s)-20)])
+    milli, micro, nano = parse_milli_micro_nano(subsecstr)
+    return Clock(yyyy, mo, dd, hh, mi, ss, milli, micro, nano) 
 end
 
 function parse_yyyymmdd_hhmmss(s::String)
