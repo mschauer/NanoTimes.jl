@@ -73,26 +73,6 @@ function parse_yyyy_mm_dd_hh_mm_sss(s::String)
     return Clock(yyyy, mo, dd, hh, mi, ss, milli, micro, nano) 
 end
 
-function parse_ds_hh_mm_sss(s::String)
-    length(s) >= 11 || throw(ErrorException("length($(s)) < 11"))
-    strs = split(s, 'd')
-    ds = parse(Int, strs[1])
-    hh, mm, ss = parse_hh_mm_ss(strs[2]) 
-    subsecstr = string(strs[2][21:end], ZEROCHARS[9 - (length(strs[2])-20)])
-    milli, micro, nano = parse_milli_micro_nano(subsecstr)
-    return Span(ds, hh, mi, ss, milli, micro, nano) 
-end
-
-function parse_hh_mm_sss(s::String)
-    length(s) >= 9 || throw(ErrorException("length($(s)) < 9"))
-    ds = 0
-    hh, mm, ss = parse_hh_mm_ss(s[1:8]) 
-    subsecstr = string(s[9:end], ZEROCHARS[9 - (length(s)-8)])
-    milli, micro, nano = parse_milli_micro_nano(subsecstr)
-    return Span(ds, hh, mi, ss, milli, micro, nano) 
-end
-
-
 function parse_yyyymmdd_hhmmss(s::String)
     yyyy, mo, dd = parse_yyyymmdd(s[1:8])
     hh, mi, ss = parse_hhmmss(s[10:15])
@@ -117,3 +97,40 @@ function parse_yymmdd_hh_mm_ss(s::String)
     return Clock(yyyy, mo, dd, hh, mi, ss) 
 end
 
+# Span
+
+function parse_ds_hh_mm_ss(s::String)
+    length(s) >= 10 || throw(ErrorException("length($(s)) < 10"))
+    strs = split(s, 'd')
+    ds = parse(Int, strs[1])
+    hh, mm, ss = parse_hh_mm_ss(strs[2]) 
+    return Span(ds, hh, mi, ss) 
+end
+
+function parse_hh_mm_ss(s::String)
+    length(s) >= 8 || throw(ErrorException("length($(s)) < 8"))
+    ds = 0
+    hh, mm, ss = parse_hh_mm_ss(s[1:8]) 
+    subsecstr = string(s[9:end], ZEROCHARS[9 - (length(s)-8)])
+    milli, micro, nano = parse_milli_micro_nano(subsecstr)
+    return Span(ds, hh, mi, ss) 
+end
+
+function parse_ds_hh_mm_sss(s::String)
+    length(s) >= 11 || throw(ErrorException("length($(s)) < 11"))
+    strs = split(s, 'd')
+    ds = parse(Int, strs[1])
+    hh, mm, ss = parse_hh_mm_ss(strs[2]) 
+    subsecstr = string(strs[2][21:end], ZEROCHARS[9 - (length(strs[2])-20)])
+    milli, micro, nano = parse_milli_micro_nano(subsecstr)
+    return Span(ds, hh, mi, ss, milli, micro, nano) 
+end
+
+function parse_hh_mm_sss(s::String)
+    length(s) >= 9 || throw(ErrorException("length($(s)) < 9"))
+    ds = 0
+    hh, mm, ss = parse_hh_mm_ss(s[1:8]) 
+    subsecstr = string(s[9:end], ZEROCHARS[9 - (length(s)-8)])
+    milli, micro, nano = parse_milli_micro_nano(subsecstr)
+    return Span(ds, hh, mi, ss, milli, micro, nano) 
+end
