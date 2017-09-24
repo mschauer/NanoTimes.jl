@@ -1,3 +1,5 @@
+import Base.Dates.AbstractTime
+
 abstract type SpatioTemporal end
 
 abstract type Spatial  <: SpatioTemporal end
