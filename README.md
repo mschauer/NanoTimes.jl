@@ -1,6 +1,6 @@
 # NanoTimes.jl
 
-**  WorkInProcess -- made available for testing and comment **
+*  WorkInProcess -- made available for testing and comment *
 
 #### Copyright &copy;2017 by Jeffrey Sarnoff.  All rights reserved (prior to the release).
 ----------
