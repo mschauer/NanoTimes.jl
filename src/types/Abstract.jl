@@ -17,17 +17,17 @@ abstract type AbstractMoment{T}    <: Temporal end
 abstract type AbstractDuration{T}  <: Temporal end
 
 #=>
-    Simple Types
+    Simple Supertypes
 
     These types are free of determinative location and live as proleptic Gregorians
 <=#
 
-abstract type SimpleClocks{T}      <: AbstractMoment{T}   end  # date with timeofday
+abstract type AbstractClock{T}     <: AbstractMoment{T}   end  # date with timeofday
                                                                # moments    are the *tocks*
                                                                # timestamps are the *ticks*
 
-abstract type SimpleDates{T}       <: SimpleClocks{T}     end  # date without timeofday
-abstract type SimpleTimesOfDay{T}  <: SimpleClocks{T}     end  # timeofday without date
+abstract type AbstractDate{T}      <: AbstractClock{T}    end  # date without timeofday
+abstract type AbstractTimeOfDay{T} <: AbstractClock{T}    end  # timeofday without date
 
 #=>
     Informed Types
@@ -35,9 +35,9 @@ abstract type SimpleTimesOfDay{T}  <: SimpleClocks{T}     end  # timeofday witho
     These types allow temporal frameworks and admit location-aware zones
 <=#
 
-abstract type Clocks{T,Z}     <: SimpleClocks{T}     end  # date with timeofday
-abstract type Dates{T,Z}      <: SimpleDates{T}      end  # date without timeofday
-abstract type TimesOfDay{T,Z} <: SimpleTimesOfDay{T} end  # timeofday without date
+abstract type Clocks{T,Z}     <: AbstractClock{T}     end  # date with timeofday
+abstract type Dates{T,Z}      <: AbstractDate{T}      end  # date without timeofday
+abstract type TimesOfDay{T,Z} <: AbstractTimeOfDay{T} end  # timeofday without date
 
 #=>
     Kinds of Duration
