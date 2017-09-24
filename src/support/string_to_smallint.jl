@@ -38,11 +38,11 @@ end
 end
 
 @inline function str3_to_int(str::String)
-    return 100 * PlaceValue[ two_chars_to_key('0', str[1]) ] + PlaceValue[ two_chars_to_key(str[2], str[3]) ]
+    return Int16(100) * PlaceValue[ two_chars_to_key('0', str[1]) ] + PlaceValue[ two_chars_to_key(str[2], str[3]) ]
 end
 
 @inline function str4_to_int(str::String)
-    return 100 * PlaceValue[ two_chars_to_key(str[1], str[2]) ] + PlaceValue[ two_chars_to_key(str[3], str[4]) ]
+    return Int16(100) * PlaceValue[ two_chars_to_key(str[1], str[2]) ] + PlaceValue[ two_chars_to_key(str[3], str[4]) ]
 end
 
 function str_to_smallint(str::String, targetType::Integer=Int)
