@@ -14,18 +14,6 @@ export Time, Span,
     weeks, days, hours, minutes, seconds,
     milliseconds, microseconds, nanoseconds
 
-#=
-    YEAR_MO_DY, YEAR_MO_DY_HR_MI_SC, YEAR_MO_DY_HR_MI_SCFS,
-    YEAR_MO_DY_HR_MI_SC_MIL, YEAR_MO_DY_HR_MI_SC_MILMIC, YEAR_MO_DY_HR_MI_SC_MILMICNAN
-    DY_HR_MI_SC, DY_HR_MI_SCFS, HR_MI_SC, HR_MI_SCFS,
-    DY_HR_MI_SC_MIL, DY_HR_MI_SC_MILMIC, DY_HR_MI_SC_MILMICNAN
-    HR_MI_SC_MIL, HR_MI_SC_MILMIC, HR_MI_SC_MILMICNAN
-    YEARMODY, YEARMODY_HRMISC, YEARMODY_HRMISCFS,
-    YRMODY, YRMODY_HRMISC, YRMODY_HRMISCFS,
-    DY_HRMISC, DY_HRMISCFS, HRMISC, HRMISCFS
-=#
-
-#using Base.Dates
 import Base.Dates:Date, DateTime,
     datetime2rata, rata2datetime,
     datetime2unix, unix2datetime,
