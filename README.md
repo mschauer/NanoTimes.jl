@@ -1,5 +1,8 @@
 # NanoTimes.jl
-#### Copyright &copy;2017 by Jeffrey Sarnoff.  All rights reserved.
+
+**  WorkInProcess -- made available for testing and comment **
+
+#### Copyright &copy;2017 by Jeffrey Sarnoff.  All rights reserved (prior to the release).
 ----------
 ### dates with times&sdot;of&sdot;day and durations that understand nanoseconds
 ### timestamps with settable, zero-filling subsecond precision
