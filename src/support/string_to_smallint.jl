@@ -30,7 +30,7 @@ const Offset0 = UInt8('0')
     placevalue_key(two_chars_to_uints(place10, place1)...)
 
 @inline function str1_to_int(str::String)
-    @inbounds Place1s[ char_to_value(str[1]) ]
+    return Place1s[ char_to_value(str[1]) ]
 end
 
 @inline function str2_to_int(str::String)
@@ -38,11 +38,11 @@ end
 end
 
 @inline function str3_to_int(str::String)
-    @inbounds 100 * PlaceValue[ two_chars_to_key('0', str[1]) ] + PlaceValue[ two_chars_to_key(str[2], str[3]) ]
+    return 100 * PlaceValue[ two_chars_to_key('0', str[1]) ] + PlaceValue[ two_chars_to_key(str[2], str[3]) ]
 end
 
 @inline function str4_to_int(str::String)
-    @inbounds 100 * PlaceValue[ two_chars_to_key(str[1], str[2]) ] + PlaceValue[ two_chars_to_key(str[3], str[4]) ]
+    return 100 * PlaceValue[ two_chars_to_key(str[1], str[2]) ] + PlaceValue[ two_chars_to_key(str[3], str[4]) ]
 end
 
 function str_to_smallint(str::String, targetType::Integer=Int)
