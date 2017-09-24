@@ -143,7 +143,7 @@ function parse_span_ds_hh_mm_ss(s::String)
 end
 
 function parse_span_hh_mm_ss(s::String)
-    ds = 0
+    ds = zero(Int16)
     hh, mm, ss = parse_hh_mm_ss(s[1:8]) 
     return Span(ds, hh, mi, ss) 
 end
@@ -151,7 +151,7 @@ end
 function parse_ds_hh_mm_sss(s::String)
     length(s) >= 11 || throw(ErrorException("length($(s)) < 11"))
     strs = split(s, 'd')
-    ds = parse(Int, strs[1])
+    ds = parse(Int16, strs[1])
     hh, mm, ss = parse_hh_mm_ss(strs[2]) 
     subsecstr = string(strs[2][21:end], ZEROCHARS[9 - (length(strs[2])-20)])
     milli, micro, nano = parse_milli_micro_nano(subsecstr)
@@ -160,7 +160,7 @@ end
 
 function parse_hh_mm_sss(s::String)
     length(s) >= 9 || throw(ErrorException("length($(s)) < 9"))
-    ds = 0
+    ds = zero(Int16)
     hh, mm, ss = parse_hh_mm_ss(s[1:8]) 
     subsecstr = string(s[9:end], ZEROCHARS[9 - (length(s)-8)])
     milli, micro, nano = parse_milli_micro_nano(subsecstr)
