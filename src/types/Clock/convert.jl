@@ -43,7 +43,7 @@ function Clock(; year::I=year(now()), month::I=1,
 end
 
 function Clock(year::Year=Year(now()), month::Month=Month(1),
-                 week::Week=Week(0), day::Day=Day(1),
+                 day::Day=Day(1),
                  hour::Hour=Hour(0), minute::Minute=Minute(0),
                  second::Second=Second(0),
                  millisecond::Millisecond=Millisecond(0),
