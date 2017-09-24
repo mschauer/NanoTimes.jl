@@ -36,7 +36,7 @@ import Base.Dates:Date, DateTime,
     year, month, week, day, hour, minute, second,
     millisecond, microsecond, nanosecond
 
-const IntSpans = Union{Int32, Int64, Int128}
+const IntSpans = Union{Int16, Int32, Int64, Int128}
 const IntTimes = Union{Int64, Int128}
 const IntTime  = Int64                   # one of IntTimes
 
