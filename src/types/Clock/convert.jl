@@ -41,7 +41,7 @@ function Clock(; year::I=year(now()), month::I=1,
     dnanosec += week * NANOSECONDS_PER_WEEK
     return Clock(Date(year, month, day)) + Span(dnanosec)
 end
-
+#=
 function Clock(year::Year=Year(now()), month::Month=Month(1),
                  day::Day=Day(1),
                  hour::Hour=Hour(0), minute::Minute=Minute(0),
@@ -57,7 +57,7 @@ function Clock(year::Year=Year(now()), month::Month=Month(1),
                  microsecond=microsecond(microsecond),
                  nanosecond=nanosecond(nanosecond))
 end
-
+=#
 function Clock{I}(x::Base.Dates.Time) where I<:IntTimes
     error("use Span(x::Base.Dates.Time), not Clock(x::Base.Dates.Time)")
 end
