@@ -12,7 +12,12 @@ export Time, Span,
     Weeks, Days, Hours, Minutes, Seconds,
     Milliseconds, Microseconds, Nanoseconds,
     weeks, days, hours, minutes, seconds,
-    milliseconds, microseconds, nanoseconds
+    milliseconds, microseconds, nanoseconds,
+    YEAR_MO_DY, YEAR_MO_DY_HR_MI_SC, YEAR_MO_DY_HR_MI_SCFS,
+    DY_HR_MI_SC, DY_HR_MI_SCFS, HR_MI_SC, HR_MI_SCFS,
+    YEARMODY, YEARMODY_HRMISC, YEARMODY_HRMISCFS,
+    YRMODY, YRMODY_HRMISC, YRMODY_HRMISCFS,
+    DY_HRMISC, DY_HRMISCFS, HRMISC, HRMISCFS
 
 #using Base.Dates
 import Base.Dates:Date, DateTime,
@@ -59,5 +64,23 @@ include("types/Span/parse.jl")
 include("types/mixed/Clock_Span.jl")
 include("types/mixed/arith.jl")
 include("types/mixed/periods.jl")
+include("types/mixed/parse.jl")
+
+const YEAR_MO_DY = :YEAR_MO_DY
+const YEAR_MO_DY_HR_MI_SC = :YEAR_MO_DY_HR_MI_SC
+const YEAR_MO_DY_HR_MI_SCFS = :YEAR_MO_DY_HR_MI_SCFS
+const DY_HR_MI_SC = :DY_HR_MI_SC
+const DY_HR_MI_SCFS = :DY_HR_MI_SCFS
+const HR_MI_SC = :HR_MI_SC
+const HR_MI_SCFS = :HR_MI_SCFS
+
+const YEARMODY = :YEARMODY
+const YEARMODY_HRMISCFS = :YEARMODY_HRMISCFS
+const YRMODY_HRMISC = :YRMODY_HRMISC
+const YRMODY_HRMISCFS = :YRMODY_HRMISCFS 
+const DY_HRMISC = :DY_HRMISC
+const DY_HRMISCFS = :DY_HRMISCFS
+const HRMISC = :HRMISC
+const HRMISCFS = :HRMISCFS
 
 end # module
