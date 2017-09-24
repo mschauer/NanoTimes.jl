@@ -27,8 +27,7 @@ end
 
 Clock(str::String) = parse(Clock, str)
 
-function Clock(; year::I=I(year(now())), month::I=one(I),
-                 day::I=one(I),
+function Clock(year::I=I(year(now())), month::I=one(I), day::I=one(I);
                  hour::I=zero(I), minute::I=zero(I), second::I=zero(I),
                  millisecond::I=zero(I), microsecond::I=zero(I), 
                  nanosecond::I=zero(I)) where I<:Union{Int32, Int64}
