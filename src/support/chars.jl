@@ -16,6 +16,10 @@ const ZEROCHARS = ["", "0", "00", "000", "0000", "00000", "000000", "0000000", "
 
 @inline posneg(isneg::Bool) = isneg ? NEGATIVE : POSITIVE
 
+@inline function onedigit(x::Integer)
+    string(x)[1:1]
+end
+
 @inline function twodigits(x::Integer)
     x < 10 ? string('0',x) : string(x)
 end
