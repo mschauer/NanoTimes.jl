@@ -137,20 +137,14 @@ end
 
 # Span
 
-function parse_ds_hh_mm_ss(s::String)
-    length(s) >= 10 || throw(ErrorException("length($(s)) < 10"))
-    strs = split(s, 'd')
-    ds = parse(Int, strs[1])
-    hh, mm, ss = parse_hh_mm_ss(strs[2]) 
+function parse_span_ds_hh_mm_ss(s::String)
+    ds, hh, mm, ss = parse_ds_hh_mm_ss(s) 
     return Span(ds, hh, mi, ss) 
 end
 
-function parse_hh_mm_ss(s::String)
-    length(s) >= 8 || throw(ErrorException("length($(s)) < 8"))
+function parse_span_hh_mm_ss(s::String)
     ds = 0
     hh, mm, ss = parse_hh_mm_ss(s[1:8]) 
-    subsecstr = string(s[9:end], ZEROCHARS[9 - (length(s)-8)])
-    milli, micro, nano = parse_milli_micro_nano(subsecstr)
     return Span(ds, hh, mi, ss) 
 end
 
