@@ -31,7 +31,7 @@ function Clock(; year::I=I(year(now())), month::I=one(I),
                  day::I=one(I),
                  hour::I=zero(I), minute::I=zero(I), second::I=zero(I),
                  millisecond::I=zero(I), microsecond::I=zero(I), 
-                 nanosecond::I=zero(I)) where I<:IntSpans
+                 nanosecond::I=zero(I)) where I<:Union{Int32, Int64}
     dnanosec = promote_type(Int64, I)(nanosecond)
     dnanosec += microsecond * NANOSECONDS_PER_MICROSECOND
     dnanosec += millisecond * NANOSECONDS_PER_MILLISECOND
