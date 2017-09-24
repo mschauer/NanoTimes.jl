@@ -28,7 +28,7 @@ end
 Clock(str::String) = parse(Clock, str)
 
 function Clock(; year::I=year(now()), month::I=1,
-                 week::I=0, day::I=0,
+                 week::I=0, day::I=1,
                  hour::I=0, minute::I=0, second::I=0,
                  millisecond::I=0, microsecond::I=0, 
                  nanosecond::I=0) where I<:IntSpans
@@ -40,6 +40,22 @@ function Clock(; year::I=year(now()), month::I=1,
     dnanosec += hour * NANOSECONDS_PER_HOUR
     dnanosec += week * NANOSECONDS_PER_WEEK
     return Clock(Date(year, month, day)) + Span(dnanosec)
+end
+
+function Clock(year::Year=Year(now()), month::Month=Month(1),
+                 week::Week=Week(0), day::Day=Day(1),
+                 hour::Hour=Hour(0), minute::Minute=Minute(0),
+                 second::Second=Second(0),
+                 millisecond::Millisecond=Millisecond(0),
+                 microsecond::Microsecond=Microsecond(0), 
+                 nanosecond::Nanosecond=Nanosecond(0))
+    return Clock(year=year(year), month=month(month),
+                 week=week(week), day=day(day),
+                 hour=hour(hour), minute=minute(minute),
+                 second=second(second),
+                 millisecond=millisecond(millisecond),
+                 microsecond=microsecond(microsecond),
+                 nanosecond=nanosecond(nanosecond))
 end
 
 function Clock{I}(x::Base.Dates.Time) where I<:IntTimes
